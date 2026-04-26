@@ -1,0 +1,8 @@
+aiohttp
+python-dotenv
+supabase
+requests
+aiofiles
+tenacity
+pydantic
+logging
