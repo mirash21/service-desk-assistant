@@ -85,17 +85,47 @@ class YandexAIService:
         Returns:
             Распознанный текст
         """
-        with open(audio_path, "rb") as f:
+        import subprocess
+        import tempfile
+        
+        # Конвертируем в OGG OPUS если нужно
+        converted_path = audio_path
+        if audio_path.endswith('.mp3'):
+            converted_path = audio_path.replace('.mp3', '.ogg')
+            try:
+                subprocess.run([
+                    'ffmpeg', '-i', audio_path,
+                    '-acodec', 'libopus',
+                    '-f', 'ogg',
+                    '-ar', '48000',
+                    '-ac', '1',
+                    converted_path
+                ], check=True, capture_output=True)
+                logger.info(f"Аудио конвертировано из MP3 в OGG OPUS")
+            except Exception as e:
+                logger.error(f"Ошибка конвертации аудио: {e}")
+                raise
+        
+        with open(converted_path, "rb") as f:
             audio_data = f.read()
 
         stt_url = "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize"
+        # Для STT API нужно убрать Content-Type из headers
+        stt_headers = {k: v for k, v in self.headers.items() if k != "Content-Type"}
         response = requests.post(
             stt_url,
-            headers=self.headers,
+            headers=stt_headers,
             data=audio_data,
-            params={"lang": lang, "folderId": YANDEX_FOLDER_ID},
+            params={
+                "lang": lang,
+                "folderId": YANDEX_FOLDER_ID,
+                "format": "oggopus",
+                "sampleRateHertz": 48000
+            },
             timeout=30
         )
+        if response.status_code != 200:
+            logger.error(f"STT API error {response.status_code}: {response.text}")
         response.raise_for_status()
         result = response.json().get("result", "")
         logger.debug(f"STT распознано: {len(result)} символов")
@@ -120,15 +150,21 @@ class YandexAIService:
             Путь к созданному файлу
         """
         tts_url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize"
-        payload = {
+        # Для TTS API нужно использовать query параметры и убрать Content-Type
+        params = {
             "text": text,
             "lang": lang,
             "voice": voice,
             "folderId": YANDEX_FOLDER_ID,
             "format": "oggopus"
         }
+        
+        # Убираем Content-Type из headers для TTS запроса
+        tts_headers = {k: v for k, v in self.headers.items() if k != "Content-Type"}
 
-        response = requests.post(tts_url, headers=self.headers, data=payload, timeout=30)
+        response = requests.get(tts_url, headers=tts_headers, params=params, timeout=30)
+        if response.status_code != 200:
+            logger.error(f"TTS API error {response.status_code}: {response.text}")
         response.raise_for_status()
 
         with open(output_path, "wb") as f:
@@ -208,7 +244,9 @@ class YandexAIService:
         }
 
         response = requests.post(embed_url, headers=self.headers, json=payload, timeout=30)
+        if response.status_code != 200:
+            logger.error(f"Yandex API error {response.status_code}: {response.text}")
         response.raise_for_status()
         embedding = response.json()["embedding"]
-        logger.debug(f"Embeddings получены, размерность: {len(embedding)}")
+        logger.info(f"Embeddings получены, размерность: {len(embedding)}")
         return embedding

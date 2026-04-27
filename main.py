@@ -30,14 +30,17 @@ class ServiceDeskBot:
             voice_path: Путь к голосовому файлу (опционально)
         """
         headers = {
-            "Authorization": f"Bearer {self.token}",
+            "Authorization": self.token,
             "Content-Type": "application/json"
         }
 
+        # MAX API требует user_id в query string
+        params = {
+            "user_id": str(chat_id)
+        }
+        
         payload = {
-            "chat_id": chat_id,
-            "text": text,
-            "format": "markdown"
+            "text": text
         }
 
         async with aiohttp.ClientSession() as session:
@@ -46,10 +49,13 @@ class ServiceDeskBot:
                 async with session.post(
                     f"{self.api_url}/messages",
                     headers=headers,
+                    params=params,
                     json=payload
                 ) as resp:
                     if resp.status != 200:
-                        logger.error(f"Ошибка отправки сообщения: {resp.status}")
+                        error_text = await resp.text()
+                        logger.error(f"Ошибка отправки сообщения: {resp.status} - {error_text}")
+                        logger.error(f"Payload: {payload}")
                     else:
                         logger.debug(f"Сообщение отправлено в чат {chat_id}")
             except Exception as e:
@@ -65,7 +71,7 @@ class ServiceDeskBot:
 
                         async with session.post(
                             f"{self.api_url}/messages",
-                            headers={"Authorization": f"Bearer {self.token}"},
+                            headers={"Authorization": self.token},
                             data=form
                         ) as voice_resp:
                             if voice_resp.status != 200:
@@ -78,7 +84,7 @@ class ServiceDeskBot:
     async def setup_webhook(self, webhook_url: str):
         """Настройка webhook в MAX API"""
         headers = {
-            "Authorization": f"Bearer {self.token}",
+            "Authorization": self.token,
             "Content-Type": "application/json"
         }
         
@@ -103,7 +109,7 @@ class ServiceDeskBot:
 
     async def get_updates(self):
         """Long Polling для получения обновлений от MAX"""
-        headers = {"Authorization": f"Bearer {self.token}"}
+        headers = {"Authorization": self.token}
 
         logger.info("🤖 Бот запущен и ожидает сообщения...")
 
@@ -169,7 +175,7 @@ async def main():
         # Запуск webhook сервера
         from webhook_server import WebhookServer
         server = WebhookServer()
-        await server.run_async(host='0.0.0.0', port=8080)
+        await server.run_async(host='0.0.0.0', port=8081)
     else:
         # Режим long polling
         logger.info("🤖 Бот запущен и ожидает сообщения...")

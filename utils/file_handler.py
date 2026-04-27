@@ -41,7 +41,9 @@ async def download_file(url: str, headers: dict, file_type: str = "bin") -> str:
             if len(content) > MAX_FILE_SIZE:
                 raise Exception(f"Загруженный файл слишком большой: {len(content) / 1024 / 1024:.2f} MB")
 
-    file_id = url.split("/")[-1]
+    # Используем временное имя файла с timestamp
+    import time
+    file_id = f"{int(time.time() * 1000)}"
     file_path = os.path.join(TEMP_DIR, f"{file_id}.{file_type}")
 
     async with aiofiles.open(file_path, "wb") as f:

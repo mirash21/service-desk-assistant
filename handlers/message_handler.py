@@ -39,8 +39,10 @@ class MessageHandler:
         if not message:
             return None
 
-        chat_id = message.get("chat", {}).get("chat_id")
-        user_id = message.get("from", {}).get("user_id")
+        # MAX API использует другую структуру: recipient вместо chat, sender вместо from
+        # Для отправки ответа используем user_id отправителя
+        user_id = message.get("sender", {}).get("user_id") or message.get("from", {}).get("user_id")
+        chat_id = user_id  # Используем user_id как chat_id для отправки ответа
         
         # Проверка rate limit
         if not self.rate_limiter.is_allowed(user_id):
@@ -51,7 +53,8 @@ class MessageHandler:
             }
 
         # Обработка команд
-        if message.get("text", "").startswith("/"):
+        text = message.get("text") or message.get("body", {}).get("text", "")
+        if text.startswith("/"):
             return await self._handle_command(message, chat_id, user_id)
 
         # Обработка контента
@@ -59,7 +62,7 @@ class MessageHandler:
 
     async def _handle_command(self, message: dict, chat_id: str, user_id: str) -> dict:
         """Обработка команд бота"""
-        text = message.get("text", "")
+        text = message.get("text") or message.get("body", {}).get("text", "")
         parts = text.split(maxsplit=1)
         command = parts[0]
         args = parts[1] if len(parts) > 1 else ""
@@ -125,17 +128,38 @@ class MessageHandler:
             file_path = os.path.join(DATA_DIR, filename)
             if os.path.isfile(file_path):
                 try:
-                    with open(file_path, "r", encoding="utf-8") as f:
-                        content = f.read()
-
-                    self.rag_manager.index_document(
-                        content=content,
-                        metadata={"filename": filename}
-                    )
-                    docs_indexed += 1
-                    logger.info(f"Индексирован документ: {filename}")
+                    content = ""
+                    
+                    # Обработка .docx файлов
+                    if filename.endswith('.docx'):
+                        from docx import Document
+                        doc = Document(file_path)
+                        content = "\n".join([para.text for para in doc.paragraphs])
+                    # Обработка текстовых файлов
+                    else:
+                        with open(file_path, "r", encoding="utf-8") as f:
+                            content = f.read()
+                    
+                    if content.strip():  # Индексируем только если есть контент
+                        # Разбиваем длинный текст на чанки (максимум 1000 символов)
+                        chunk_size = 1000
+                        chunks = [content[i:i+chunk_size] for i in range(0, len(content), chunk_size)]
+                        
+                        for i, chunk in enumerate(chunks):
+                            try:
+                                self.rag_manager.index_document(
+                                    content=chunk,
+                                    metadata={"filename": filename, "chunk": i+1, "total_chunks": len(chunks)}
+                                )
+                                docs_indexed += 1
+                                logger.info(f"Индексирован чанк {i+1}/{len(chunks)} документа: {filename}")
+                            except Exception as chunk_error:
+                                logger.error(f"Ошибка индексации чанка {i+1} файла {filename}: {chunk_error}")
+                    else:
+                        logger.warning(f"Пустой документ: {filename}")
+                        
                 except Exception as e:
-                    logger.error(f"Ошибка индексации {filename}: {e}")
+                    logger.error(f"Ошибка индексации {filename}: {e}", exc_info=True)
 
         logger.info(f"Проиндексировано документов: {docs_indexed}")
         return {
@@ -145,16 +169,21 @@ class MessageHandler:
 
     async def _handle_content(self, message: dict, chat_id: str, user_id: str) -> dict:
         """Обработка контента (текст, голос, фото, документы)"""
-        mode = self.rag_manager.get_user_mode(user_id)
+        try:
+            mode = self.rag_manager.get_user_mode(user_id)
+        except Exception as e:
+            logger.warning(f"Не удалось получить режим пользователя {user_id}: {e}. Используем режим по умолчанию 'text'")
+            mode = "text"
         context_parts = []
         logger.info(f"Обработка сообщения от {user_id} в режиме {mode}")
 
         # RAG режим: поиск в базе знаний
-        if mode == "rag" and message.get("text"):
-            relevant_docs = self.rag_manager.search_text_only(message["text"], top_k=3)
+        text = message.get("text") or message.get("body", {}).get("text")
+        if mode == "rag" and text:
+            relevant_docs = self.rag_manager.search_text_only(text, top_k=3)
             if relevant_docs:
                 context = "\n\n---\n\n".join(relevant_docs)
-                prompt = build_rag_prompt(message["text"], context)
+                prompt = build_rag_prompt(text, context)
                 answer = self.yandex_ai.generate_text(prompt)
                 logger.info(f"RAG ответ для {user_id}")
                 return {"chat_id": chat_id, "text": answer}
@@ -162,10 +191,29 @@ class MessageHandler:
                 logger.info(f"RAG: информация не найдена для {user_id}")
                 return {"chat_id": chat_id, "text": "Информация не найдена в базе знаний"}
 
-        # Обработка голосовых сообщений
-        if message.get("voice"):
+        # Обработка аудио вложений (MAX API) - проверяем первым
+        attachments = message.get("attachments") or message.get("body", {}).get("attachments", [])
+        logger.info(f"Проверка attachments: {bool(attachments)}")
+        if attachments:
+            logger.info(f"Найдено {len(attachments)} вложений")
+            for attachment in attachments:
+                payload = attachment.get("payload", {})
+                url = payload.get("url")
+                logger.info(f"Обработка вложения с URL: {url[:50] if url else 'None'}...")
+                if url:
+                    try:
+                        logger.info(f"Обнаружено вложение от {user_id}: {url[:100]}...")
+                        audio_path = await download_file(url, {}, "mp3")
+                        text_from_voice = self.yandex_ai.speech_to_text(audio_path)
+                        context_parts.append(f"VOICE_TEXT: {text_from_voice}")
+                        logger.info(f"Аудио распознано: {text_from_voice[:50]}...")
+                    except Exception as e:
+                        logger.error(f"Ошибка обработки вложения: {e}")
+        
+        # Обработка голосовых сообщений (Telegram-style)
+        elif message.get("voice"):
             file_id = message["voice"]["file_id"]
-            headers = {"Authorization": f"Bearer {MAX_BOT_TOKEN}"}
+            headers = {"Authorization": MAX_BOT_TOKEN}
             voice_path = await download_file(
                 f"{MAX_API_URL}/files/{file_id}",
                 headers,
@@ -178,7 +226,7 @@ class MessageHandler:
         # Обработка изображений
         if message.get("photo"):
             file_id = message["photo"][-1]["file_id"]
-            headers = {"Authorization": f"Bearer {MAX_BOT_TOKEN}"}
+            headers = {"Authorization": MAX_BOT_TOKEN}
             photo_path = await download_file(
                 f"{MAX_API_URL}/files/{file_id}",
                 headers,
@@ -192,8 +240,9 @@ class MessageHandler:
                 context_parts.append(f"IMAGE_DESCRIPTION: {vision_result['description']}")
 
         # Текстовое сообщение
-        if message.get("text"):
-            context_parts.append(f"USER_TEXT: {message['text']}")
+        text = message.get("text") or message.get("body", {}).get("text")
+        if text:
+            context_parts.append(f"USER_TEXT: {text}")
 
         if not context_parts:
             logger.warning(f"Не удалось обработать сообщение от {user_id}")
@@ -218,10 +267,14 @@ class MessageHandler:
             # Голосовой ответ (если режим voice)
             voice_path = None
             if mode == "voice":
-                os.makedirs(TEMP_DIR, exist_ok=True)
-                voice_path = os.path.join(TEMP_DIR, f"response_{user_id}.ogg")
-                self.yandex_ai.text_to_speech(reply_text, voice_path)
-                logger.info(f"Голосовой ответ создан для {user_id}")
+                try:
+                    os.makedirs(TEMP_DIR, exist_ok=True)
+                    voice_path = os.path.join(TEMP_DIR, f"response_{user_id}.ogg")
+                    self.yandex_ai.text_to_speech(reply_text, voice_path)
+                    logger.info(f"Голосовой ответ создан для {user_id}")
+                except Exception as e:
+                    logger.error(f"Ошибка создания голоса для {user_id}: {e}")
+                    voice_path = None
 
             return {
                 "chat_id": chat_id,

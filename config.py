@@ -23,7 +23,7 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 # Модели
 YANDEX_GPT_MODEL = "yandexgpt/latest"
-YANDEX_EMBEDDING_MODEL = "text-search-doc/latest"
+YANDEX_EMBEDDING_MODEL = "text-search-doc"
 
 # Настройки
 TEMP_DIR = "./temp"

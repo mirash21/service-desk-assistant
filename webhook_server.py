@@ -21,15 +21,13 @@ class WebhookServer:
     async def handle_webhook(self, request: web.Request) -> web.Response:
         """Обработка входящего webhook от MAX"""
         try:
-            # Проверка авторизации
-            auth_header = request.headers.get('Authorization', '')
-            if auth_header != f"Bearer {MAX_BOT_TOKEN}":
-                logger.warning("Неверная авторизация webhook")
-                return web.Response(status=401, text="Unauthorized")
+            # MAX API не отправляет Authorization header, проверка отключена
+            # auth_header = request.headers.get('Authorization', '')
+            # logger.info(f"Получен webhook с Authorization: '{auth_header[:50] if auth_header else 'EMPTY'}...'")
 
             # Получение данных
             data = await request.json()
-            logger.debug(f"Получен webhook: {json.dumps(data, ensure_ascii=False)[:200]}")
+            logger.info(f"Получен webhook: {json.dumps(data, ensure_ascii=False)[:500]}")
 
             # Обработка сообщения
             response = await self.handler.handle_update(data)
@@ -50,14 +48,17 @@ class WebhookServer:
         from config import MAX_API_URL
 
         headers = {
-            "Authorization": f"Bearer {MAX_BOT_TOKEN}",
+            "Authorization": MAX_BOT_TOKEN,
             "Content-Type": "application/json"
         }
 
+        # MAX API требует user_id в query string
+        params = {
+            "user_id": str(response["chat_id"])
+        }
+        
         payload = {
-            "chat_id": response["chat_id"],
-            "text": response["text"],
-            "format": "markdown"
+            "text": response["text"]
         }
 
         async with aiohttp.ClientSession() as session:
@@ -65,16 +66,18 @@ class WebhookServer:
                 async with session.post(
                     f"{MAX_API_URL}/messages",
                     headers=headers,
+                    params=params,
                     json=payload
                 ) as resp:
                     if resp.status == 200:
                         logger.debug(f"Ответ отправлен в чат {response['chat_id']}")
                     else:
-                        logger.error(f"Ошибка отправки ответа: {resp.status}")
+                        error_text = await resp.text()
+                        logger.error(f"Ошибка отправки ответа: {resp.status} - {error_text}")
             except Exception as e:
                 logger.error(f"Ошибка при отправке ответа: {e}")
 
-    async def run_async(self, host='0.0.0.0', port=8080):
+    async def run_async(self, host='0.0.0.0', port=8081):
         """Асинхронный запуск webhook сервера"""
         runner = web.AppRunner(self.app)
         await runner.setup()

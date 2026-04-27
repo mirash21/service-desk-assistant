@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  service-desk-bot:
+  max-bot-webhook:
     build: .
-    container_name: service-desk-bot
+    container_name: max-bot-webhook
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "8081:8081"
     environment:
       - MAX_BOT_TOKEN=${MAX_BOT_TOKEN}
       - WEBHOOK_URL=${WEBHOOK_URL}
@@ -19,14 +19,14 @@ services:
       - ./data:/app/data
       - ./temp:/app/temp
     networks:
-      - bot-network
+      - npm_network
     healthcheck:
-      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8080/health')"]
+      test: ["CMD-SHELL", "python -c \"import socket; s = socket.socket(); s.settimeout(2); s.connect(('localhost', 8081)); s.close()\" || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 10s
 
 networks:
-  bot-network:
-    driver: bridge
+  npm_network:
+    external: true

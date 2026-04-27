@@ -5,4 +5,4 @@ requests
 aiofiles
 tenacity
 pydantic
-logging
+python-docx
