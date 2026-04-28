@@ -6,10 +6,13 @@ AI-powered service desk assistant bot with RAG (Retrieval-Augmented Generation) 
 
 - 🤖 **Multi-modal input**: Text, voice messages, and images
 - 🧠 **RAG System**: Semantic search over document knowledge base using Supabase + pgvector
-- 🎙️ **Voice Support**: Speech-to-text (STT) and text-to-speech (TTS) via Yandex SpeechKit
+- 🎙️ **Voice Support**: Speech-to-text (STT) and text-to-speech (TTS) via Yandex SpeechKit with caching
+- 📸 **Image Processing**: Automatic image analysis and description extraction
 - 📚 **Document Indexing**: Automatic indexing of .docx and .txt files
+- ❓ **Unanswered Questions Tracking**: Automatic logging of questions that couldn't be answered for knowledge base improvement
 - 💬 **Multiple Modes**: text, rag (with context), and voice response modes
 - 🔄 **Webhook Integration**: Real-time message processing via MAX Messenger API
+- 👤 **User Preferences**: Personalized responses based on user interaction history
 
 ## Architecture
 
@@ -84,6 +87,7 @@ python main.py
 - `/mode [text|rag|voice]` - Switch response mode
 - `/index` - Index documents from `data/` folder
 - `/stats` - Show knowledge base statistics
+- `/unanswered` - View unanswered questions log
 - `/help` - Show help message
 
 ### Response Modes
@@ -106,18 +110,26 @@ service-desk-assistant/
 │   └── message_handler.py
 ├── services/           # External API services
 │   ├── yandex_service.py    # Yandex AI (GPT, STT, TTS)
-│   └── supabase_service.py  # Vector database operations
+│   ├── supabase_service.py  # Vector database operations
+│   ├── voice_manager.py     # TTS caching and voice management
+│   └── unanswered_logger.py # Unanswered questions tracking
 ├── utils/              # Utility functions
 │   ├── logger.py       # Logging configuration
 │   ├── file_handler.py # File download and processing
-│   └── temp_manager.py # Temporary file cleanup
+│   ├── temp_manager.py # Temporary file cleanup
+│   └── prompt_builder.py    # Dynamic prompt construction
 ├── rag/                # RAG system components
 │   └── supabase_manager.py  # Document indexing and search
 ├── data/               # Documents to index (mounted as volume)
+│   ├── tts_cache/      # Cached TTS audio files
+│   ├── unanswered_questions.json  # Log of unanswered questions
+│   └── user_preferences.json      # User preference storage
 ├── temp/               # Temporary files (auto-cleaned)
 ├── config.py           # Configuration constants
 ├── main.py             # Application entry point
 ├── webhook_server.py   # Webhook HTTP server
+├── manage_unanswered.py # Tool for managing unanswered questions
+├── test_rag.py         # RAG system testing utility
 └── docker-compose.yml  # Docker orchestration
 ```
 
@@ -168,6 +180,11 @@ docker exec max-bot-webhook which ffmpeg
 docker compose logs max-bot-webhook | grep "STT"
 ```
 
+4. Check TTS cache directory permissions:
+```bash
+ls -la data/tts_cache/
+```
+
 ### Document Indexing Fails
 
 1. Ensure documents are in `data/` directory
@@ -180,6 +197,26 @@ curl -H "apikey: YOUR_ANON_KEY" https://YOUR_PROJECT.supabase.co/rest/v1/documen
 ```sql
 SELECT * FROM pg_extension WHERE extname = 'vector';
 ```
+
+### Image Processing Issues
+
+1. Verify image files are properly attached in MAX Messenger
+2. Check logs for image processing errors:
+```bash
+docker compose logs max-bot-webhook | grep "image"
+```
+
+3. Ensure Yandex Vision API is enabled in your Yandex Cloud account
+
+### Unanswered Questions Not Logged
+
+1. Check if `data/unanswered_questions.json` exists and is writable
+2. Verify unanswered logger service is initialized:
+```bash
+docker compose logs max-bot-webhook | grep "unanswered"
+```
+
+3. Use `/unanswered` command to view logged questions
 
 ### Webhook Not Receiving Messages
 
