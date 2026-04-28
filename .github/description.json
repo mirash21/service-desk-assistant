@@ -1,0 +1,4 @@
+{
+  "name": "service-desk-assistant",
+  "description": "🤖 Multimodal AI Service Desk Assistant with RAG, Voice & Image Support. Features YandexGPT integration, vector search, TTS voice messages, image processing, unanswered questions tracking, and Docker-ready deployment."
+}
