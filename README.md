@@ -262,7 +262,19 @@ schedule_periodic_cleanup(interval_seconds=3600)
 
 ## License
 
-MIT License
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+### Summary
+
+- ✅ Commercial use
+- ✅ Modification
+- ✅ Distribution
+- ✅ Patent use
+- ✅ Private use
+- ❌ Liability
+- ❌ Warranty
+- ℹ️ License and copyright notice
+- ℹ️ State changes
 
 ## Contributing
 
