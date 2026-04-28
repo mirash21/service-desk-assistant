@@ -30,6 +30,10 @@ TEMP_DIR = "./temp"
 DATA_DIR = "./data"
 LOGS_DIR = "./logs"
 
+# TTS настройки
+TTS_VOICE = os.getenv("TTS_VOICE", "ermil")  # filipp (мужской), alena (женский)
+TTS_LANGUAGE = os.getenv("TTS_LANGUAGE", "ru-RU")
+
 # Максимальный размер файла (10 MB)
 MAX_FILE_SIZE = 10 * 1024 * 1024
 

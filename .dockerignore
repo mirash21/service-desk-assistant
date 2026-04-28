@@ -1,50 +1,76 @@
-# Docker
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+# Git
+.git
+.gitignore
 
-# Virtual environment
-venv/
-ENV/
-env/
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv
+env
+ENV
+.venv
 
 # IDE
-.vscode/
-.idea/
+.vscode
+.idea
 *.swp
 *.swo
 *~
 
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Documentation
+*.md
+docs/
+
+# Tests
+tests/
+test_*.py
+*_test.py
+pytest.ini
+tox.ini
+
+# Temporary files
+temp/
+*.tmp
+*.temp
+
 # Logs
-logs/*.log
+logs/
 
-# Data
-data/*
-temp/*
-!data/.gitkeep
-!temp/.gitkeep
+# Data (exclude from image, mount as volume)
+data/
 
-# Environment files
-.env
-.env.local
-.env.*.local
+# SQL migration files (not needed in runtime)
+*.sql
+
+# Test scripts
+test_*.py
 
 # OS
 .DS_Store

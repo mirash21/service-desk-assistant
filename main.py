@@ -8,6 +8,7 @@ from config import MAX_BOT_TOKEN, MAX_API_URL, validate_config
 from handlers.message_handler import MessageHandler
 from utils.logger import logger
 from utils.file_handler import cleanup_temp_files
+from utils.temp_manager import schedule_periodic_cleanup
 
 
 class ServiceDeskBot:
@@ -63,6 +64,7 @@ class ServiceDeskBot:
 
             # Отправка голосового сообщения
             if voice_path:
+                logger.info(f"Попытка отправки голоса: {voice_path}")
                 try:
                     with open(voice_path, "rb") as f:
                         form = aiohttp.FormData()
@@ -75,11 +77,14 @@ class ServiceDeskBot:
                             data=form
                         ) as voice_resp:
                             if voice_resp.status != 200:
-                                logger.error(f"Ошибка отправки голоса: {voice_resp.status}")
+                                error_text = await voice_resp.text()
+                                logger.error(f"Ошибка отправки голоса: {voice_resp.status} - {error_text}")
                             else:
-                                logger.debug(f"Голосовое сообщение отправлено в чат {chat_id}")
+                                logger.info(f"Голосовое сообщение отправлено в чат {chat_id}")
                 except Exception as e:
-                    logger.error(f"Ошибка отправки голосового файла: {e}")
+                    logger.error(f"Ошибка отправки голосового файла: {e}", exc_info=True)
+            else:
+                logger.debug(f"voice_path не передан, голос не отправляется")
 
     async def setup_webhook(self, webhook_url: str):
         """Настройка webhook в MAX API"""
@@ -164,6 +169,10 @@ async def main():
     # Очистка временных файлов при запуске
     cleanup_temp_files()
     logger.info("Временные файлы очищены")
+    
+    # Запуск периодической очистки временных файлов (каждые 30 минут)
+    schedule_periodic_cleanup(interval_seconds=1800)
+    logger.info("Запущена периодическая очистка временных файлов")
     
     bot = ServiceDeskBot()
     

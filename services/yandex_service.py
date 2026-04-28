@@ -2,6 +2,7 @@
 Сервис для работы с Yandex AI Studio API
 Поддерживает: YandexGPT, SpeechKit (STT/TTS), Vision OCR, Embeddings
 """
+import json
 import requests
 import base64
 import time
@@ -74,6 +75,11 @@ class YandexAIService:
         wait=wait_exponential(multiplier=1, min=2, max=10),
         retry=retry_if_exception_type((requests.exceptions.RequestException, requests.exceptions.Timeout))
     )
+    @retry(
+        stop=stop_after_attempt(2),
+        wait=wait_exponential(multiplier=1, min=2, max=5),
+        retry=retry_if_exception_type((requests.exceptions.RequestException, requests.exceptions.Timeout))
+    )
     def speech_to_text(self, audio_path: str, lang: str = "ru-RU") -> str:
         """
         Распознавание речи через Yandex SpeechKit STT
@@ -87,6 +93,8 @@ class YandexAIService:
         """
         import subprocess
         import tempfile
+        
+        start_time = time.time()
         
         # Конвертируем в OGG OPUS если нужно
         converted_path = audio_path
@@ -124,11 +132,16 @@ class YandexAIService:
             },
             timeout=30
         )
+        
+        processing_time = time.time() - start_time
+        
         if response.status_code != 200:
             logger.error(f"STT API error {response.status_code}: {response.text}")
+            logger.error(f"Время обработки до ошибки: {processing_time:.2f}s")
         response.raise_for_status()
         result = response.json().get("result", "")
-        logger.debug(f"STT распознано: {len(result)} символов")
+        
+        logger.info(f"STT успешно: {len(result)} символов за {processing_time:.2f}s")
         return result
 
     @retry(
@@ -196,8 +209,18 @@ class YandexAIService:
             "analyze_specs": [{
                 "content": image_data,
                 "features": [
-                    {"type": "TEXT_DETECTION"},
-                    {"type": "CLASSIFICATION"}
+                    {
+                        "type": "TEXT_DETECTION",
+                        "text_detection_config": {
+                            "language_codes": ["ru", "en"]
+                        }
+                    },
+                    {
+                        "type": "CLASSIFICATION",
+                        "classification_config": {
+                            "models": ["general:v3"]
+                        }
+                    }
                 ]
             }]
         }
@@ -205,22 +228,63 @@ class YandexAIService:
         response = requests.post(vision_url, headers=self.headers, json=payload, timeout=30)
         response.raise_for_status()
 
-        results = response.json()["results"][0]["results"]
-        text = ""
-        description = ""
+        try:
+            response_data = response.json()
+            logger.info(f"Yandex Vision API ответ: {json.dumps(response_data, ensure_ascii=False)[:500]}")
+            
+            # Проверяем структуру ответа
+            if "results" not in response_data:
+                logger.error(f"Yandex Vision API: нет ключа 'results' в ответе")
+                return {"text": "", "description": ""}
+            
+            results_list = response_data["results"]
+            if not results_list or len(results_list) == 0:
+                logger.error(f"Yandex Vision API: пустой список results")
+                return {"text": "", "description": ""}
+            
+            first_result = results_list[0]
+            
+            # Новая структура API: результат напрямую в первом элементе
+            if "results" in first_result:
+                # Старая структура с вложенным results
+                results = first_result["results"]
+            else:
+                # Новая структура без вложенного results
+                results = [first_result]
+            
+            text = ""
+            description = ""
 
-        for result in results:
-            if "textDetection" in result:
-                pages = result.get("textDetection", {}).get("pages", [])
-                if pages:
-                    text = " ".join([page.get("fullText", "") for page in pages])
-            if "classification" in result:
-                props = result.get("classification", {}).get("properties", [])
-                if props:
-                    description = props[0].get("name", "")
+            for result in results:
+                if "textDetection" in result:
+                    pages = result.get("textDetection", {}).get("pages", [])
+                    if pages:
+                        # Извлекаем текст из структуры blocks -> lines -> words
+                        all_words = []
+                        for page in pages:
+                            blocks = page.get("blocks", [])
+                            for block in blocks:
+                                lines = block.get("lines", [])
+                                for line in lines:
+                                    words = line.get("words", [])
+                                    for word in words:
+                                        # Текст слова находится в поле "text"
+                                        word_text = word.get("text", "")
+                                        if word_text:
+                                            all_words.append(word_text)
+                        text = " ".join(all_words)
+                        
+                if "classification" in result:
+                    props = result.get("classification", {}).get("properties", [])
+                    if props:
+                        description = props[0].get("name", "")
 
-        logger.debug(f"Vision анализ: текст={len(text)} симв., описание={description}")
-        return {"text": text, "description": description}
+            logger.info(f"Vision анализ успешен: текст={len(text)} симв., описание={description[:50] if description else 'нет'}")
+            return {"text": text, "description": description}
+            
+        except (KeyError, IndexError, TypeError) as e:
+            logger.error(f"Ошибка парсинга ответа Yandex Vision API: {e}", exc_info=True)
+            return {"text": "", "description": ""}
 
     @retry(
         stop=stop_after_attempt(3),
