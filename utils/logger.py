@@ -3,7 +3,12 @@
 """
 import logging
 import os
-from config import LOGS_DIR
+
+# Try to import config, fallback to default if not available
+try:
+    from config import LOGS_DIR
+except ImportError:
+    LOGS_DIR = os.path.join(os.path.dirname(__file__), '..', 'logs')
 
 
 def setup_logger(name: str = "service_desk", level: int = logging.INFO) -> logging.Logger:

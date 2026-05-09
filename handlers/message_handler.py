@@ -153,8 +153,20 @@ class MessageHandler:
             logger.warning("Папка data/ не найдена")
             return {"chat_id": chat_id, "text": "❌ Папка data/ не найдена"}
 
+        # Файлы, которые нужно исключить из индексации
+        excluded_files = [
+            'user_preferences.json',
+            'unanswered_questions.json'
+        ]
+
         for filename in os.listdir(DATA_DIR):
             file_path = os.path.join(DATA_DIR, filename)
+            
+            # Пропускаем исключённые файлы
+            if filename in excluded_files:
+                logger.info(f"Пропущен служебный файл: {filename}")
+                continue
+            
             if os.path.isfile(file_path):
                 try:
                     content = ""
@@ -400,7 +412,29 @@ class MessageHandler:
         Returns:
             Ответ пользователю с анализом изображения
         """
-        # Поиск релевантных документов через RAG
+        # Извлекаем текст изображения
+        image_text = ""
+        if "IMAGE_TEXT:" in context:
+            image_text = context.split("IMAGE_TEXT:")[1].split("\n")[0].strip()
+        
+        logger.info(f"Извлеченный текст с изображения (первые 150 симв): {image_text[:150]}")
+        
+        # Проверяем, является ли текст описанием ошибки/проблемы (а не вопросом)
+        error_indicators = [
+            "возникла проблема", "необходимо перезагрузить", "ошибка", 
+            "критическая ошибка", "синий экран", "bsod",
+            "не удалось", "отказано в доступе", "не найдено"
+        ]
+        
+        is_error = any(indicator in image_text.lower() for indicator in error_indicators)
+        logger.info(f"Проверка на ошибку: is_error={is_error}, indicators_found={[ind for ind in error_indicators if ind in image_text.lower()]}")
+        
+        if is_error:
+            logger.info(f"Обнаружена ошибка на изображении, создаём заявку")
+            # Создаём заявку через стандартный метод
+            return await self._create_ticket(context, chat_id, user_id, "text")
+        
+        # Если это не ошибка, используем RAG для ответа на вопрос
         logger.info(f"Поиск по базе знаний для вопроса по изображению")
         rag_results = self.rag_manager.search(context, top_k=3)
         
@@ -692,7 +726,11 @@ class MessageHandler:
             # Вопрос по изображению - анализируем и отвечаем
             return await self._handle_image_question(full_context, chat_id, user_id)
         elif intent == "question":
-            # Обычный вопрос
+            # Если есть изображение, используем обработчик изображений
+            if has_image:
+                return await self._handle_image_question(full_context, chat_id, user_id)
+            
+            # Обычный вопрос без изображения
             if mode == "rag" and not has_image:
                 # В режиме RAG используем базу знаний
                 text = message.get("text") or message.get("body", {}).get("text")

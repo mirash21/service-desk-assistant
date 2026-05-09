@@ -97,7 +97,7 @@ class SupabaseRAGManager:
         result = self.client.table(self.table_name).insert(data).execute()
         return result.data[0] if result.data else None
 
-    def search(self, query: str, top_k: int = 3, filter_metadata: dict = None) -> list:
+    def search(self, query: str, top_k: int = 3, filter_metadata: dict = None, min_similarity: float = 0.5) -> list:
         """
         Семантический поиск в базе знаний
 
@@ -105,6 +105,7 @@ class SupabaseRAGManager:
             query: Поисковый запрос
             top_k: Количество результатов
             filter_metadata: Фильтр по метаданным (например, {"category": "IT"})
+            min_similarity: Минимальный порог схожести (0.0-1.0)
 
         Returns:
             Список найденных документов с контентом и similarity score
@@ -113,12 +114,23 @@ class SupabaseRAGManager:
 
         params = {
             "query_embedding": query_embedding,
-            "match_count": top_k,
+            "match_count": top_k * 2,  # Берем больше для фильтрации
             "filter": filter_metadata or {}
         }
 
         result = self.client.rpc("match_documents", params).execute()
-        return result.data if result.data else []
+        
+        if not result.data:
+            return []
+        
+        # Фильтруем по порогу схожести
+        filtered_results = [
+            doc for doc in result.data 
+            if doc.get('similarity', 0) >= min_similarity
+        ]
+        
+        # Возвращаем top_k лучших
+        return filtered_results[:top_k]
 
     def search_text_only(self, query: str, top_k: int = 3) -> list:
         """
@@ -133,6 +145,76 @@ class SupabaseRAGManager:
         """
         results = self.search(query, top_k)
         return [doc["content"] for doc in results]
+
+    def hybrid_search(self, query: str, top_k: int = 5, min_similarity: float = 0.5) -> list:
+        """
+        Гибридный поиск: семантический + keyword matching
+        
+        Args:
+            query: Поисковый запрос
+            top_k: Количество результатов
+            min_similarity: Минимальный порог схожести
+            
+        Returns:
+            Список документов, отсортированных по комбинированному score
+        """
+        # 1. Семантический поиск
+        semantic_results = self.search(query, top_k=top_k*2, min_similarity=min_similarity)
+        
+        # 2. Keyword поиск в content (простой full-text search через Supabase)
+        try:
+            # Разбиваем запрос на ключевые слова
+            keywords = [w.lower() for w in query.split() if len(w) > 3]
+            
+            if keywords:
+                # Ищем документы, содержащие хотя бы одно ключевое слово
+                keyword_query = self.client.table(self.table_name).select(
+                    'id', 'content', 'metadata'
+                )
+                
+                # Используем ilike для case-insensitive поиска
+                for i, keyword in enumerate(keywords[:3]):  # Ограничиваем 3 словами
+                    if i == 0:
+                        keyword_query = keyword_query.or_(f"content.ilike.%{keyword}%")
+                    else:
+                        # Добавляем дополнительные условия через OR
+                        pass
+                
+                keyword_results = keyword_query.limit(top_k*2).execute()
+                
+                # Объединяем результаты с приоритетом семантического поиска
+                seen_ids = set()
+                combined_results = []
+                
+                # Сначала добавляем семантические результаты
+                for doc in semantic_results:
+                    doc_id = doc.get('id')
+                    if doc_id and doc_id not in seen_ids:
+                        doc['search_type'] = 'semantic'
+                        doc['combined_score'] = doc.get('similarity', 0) * 1.2  # Приоритет семантике
+                        combined_results.append(doc)
+                        seen_ids.add(doc_id)
+                
+                # Затем добавляем keyword результаты (если есть совпадения)
+                if keyword_results.data:
+                    for doc in keyword_results.data:
+                        doc_id = doc.get('id')
+                        if doc_id and doc_id not in seen_ids:
+                            doc['search_type'] = 'keyword'
+                            doc['similarity'] = 0.4  # Базовый score для keyword
+                            doc['combined_score'] = 0.4
+                            combined_results.append(doc)
+                            seen_ids.add(doc_id)
+                
+                # Сортируем по combined_score
+                combined_results.sort(key=lambda x: x.get('combined_score', 0), reverse=True)
+                
+                return combined_results[:top_k]
+        except Exception as e:
+            logger.warning(f"Ошибка keyword поиска: {e}. Используем только семантический.")
+        
+        # Fallback: только семантический поиск
+        return semantic_results[:top_k]
 
     def get_stats(self) -> dict:
         """

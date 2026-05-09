@@ -1,0 +1,28 @@
+[server]
+# Production settings
+headless = true
+port = 8501
+address = "0.0.0.0"
+enableCORS = false
+enableXsrfProtection = true
+
+[browser]
+# Disable usage statistics
+gatherUsageStats = false
+
+[theme]
+# Optional: Custom theme for better UX
+primaryColor = "#1f77b4"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
+font = "sans serif"
+
+[runner]
+# Fast startup
+fastReruns = true
+
+[client]
+# Show error details in production
+showErrorDetails = false
+toolbarMode = "minimal"

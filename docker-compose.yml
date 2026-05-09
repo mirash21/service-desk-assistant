@@ -29,6 +29,28 @@ services:
       retries: 3
       start_period: 10s
 
+  admin-panel:
+    build:
+      context: .
+      dockerfile: admin_panel/Dockerfile
+    container_name: admin-panel
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    volumes:
+      - ./data:/app/data
+      - ./utils:/app/utils:ro
+      - ./rag:/app/rag:ro
+    depends_on:
+      - max-bot-webhook
+    networks:
+      - npm_network
+
 networks:
   npm_network:
     external: true

@@ -66,6 +66,11 @@ logs/
 # Data (exclude from image, mount as volume)
 data/
 
+# Admin Panel specific
+admin_panel/.env
+admin_panel/.env.*
+!admin_panel/.env.example
+
 # SQL migration files (not needed in runtime)
 *.sql
 

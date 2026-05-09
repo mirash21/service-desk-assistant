@@ -5,7 +5,13 @@ import aiohttp
 import aiofiles
 import os
 from utils.logger import logger
-from config import TEMP_DIR, MAX_FILE_SIZE
+
+# Try to import config, fallback to defaults if not available
+try:
+    from config import TEMP_DIR, MAX_FILE_SIZE
+except ImportError:
+    TEMP_DIR = os.path.join(os.path.dirname(__file__), '..', 'temp')
+    MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB default
 
 
 async def download_file(url: str, headers: dict, file_type: str = "bin") -> str:
