@@ -1,19 +1,26 @@
 # Service Desk Assistant Bot
 
-AI-powered service desk assistant bot with RAG (Retrieval-Augmented Generation) capabilities.
+AI-powered service desk assistant bot with advanced RAG (Retrieval-Augmented Generation), analytics, and comprehensive admin panel.
 
 ## Features
 
 - 🤖 **Multi-modal input**: Text, voice messages, and images
-- 🧠 **RAG System**: Semantic search over document knowledge base using Supabase + pgvector
-- 🎙️ **Voice Support**: Speech-to-text (STT) and text-to-speech (TTS) via Yandex SpeechKit with caching
+- 🧠 **Advanced RAG System**: Semantic search with context-aware responses using Supabase + pgvector
+- 🎙️ **Voice Support**: Speech-to-text (STT) and text-to-speech (TTS) via Yandex SpeechKit with intelligent caching
 - 📸 **Image Processing**: Automatic image analysis and description extraction
-- 📚 **Document Indexing**: Automatic indexing of .docx and .txt files
-- ❓ **Unanswered Questions Tracking**: Automatic logging of questions that couldn't be answered for knowledge base improvement
-- 💬 **Multiple Modes**: text, rag (with context), and voice response modes
+- 📚 **Smart Document Indexing**: Automatic indexing of .docx and .txt files with category support
+- ❓ **Unanswered Questions Tracking**: Automatic logging for knowledge base improvement
+- 💬 **Multiple Response Modes**: text, rag (with context), and voice modes
 - 🔄 **Webhook Integration**: Real-time message processing via MAX Messenger API
-- 👤 **User Preferences**: Personalized responses based on user interaction history
-- 📊 **Admin Panel**: Comprehensive admin interface with chat history tracking and analytics
+- 👤 **User Preferences**: Personalized responses based on interaction history
+- 📊 **Comprehensive Admin Panel**: Streamlit-based interface with full analytics
+  - 📈 **Chat History**: Complete conversation tracking with context
+  - 📉 **RAG Quality Analytics**: Automated evaluation of answer quality with metrics
+  - 👥 **User Activities**: Real-time monitoring of user interactions and engagement
+  - 📄 **Document Management**: Advanced document table with categories and filtering
+  - 📊 **Analytics Dashboard**: Visual insights into system performance and usage
+- ⚡ **Performance Optimization**: RAG query caching and optimized chunk lengths
+- 🔍 **Context-Aware Responses**: Chat history integration for better conversation flow
 
 ## Architecture
 
@@ -70,6 +77,33 @@ docker compose logs -f max-bot-webhook
 docker compose down
 ```
 
+### Running Admin Panel
+
+The admin panel provides comprehensive analytics and management:
+
+```bash
+# Install admin panel dependencies
+cd admin_panel
+pip install -r requirements.txt
+
+# Start Streamlit admin panel
+streamlit run app.py
+```
+
+Access the admin panel at `http://localhost:8501`
+
+### Database Migrations
+
+Apply necessary database migrations for new features:
+
+```bash
+# Apply chat history migration
+python scripts/apply_chat_history_migration.py
+
+# Apply RAG quality metrics migration
+python scripts/apply_rag_quality_migration.py
+```
+
 ### Manual Setup (Development)
 
 ```bash
@@ -91,6 +125,21 @@ python main.py
 - `/unanswered` - View unanswered questions log
 - `/help` - Show help message
 
+### Admin Panel
+
+Access the admin panel at `http://localhost:8501` (or your configured port):
+
+```bash
+# Start admin panel
+cd admin_panel && streamlit run app.py
+```
+
+**Admin Panel Features:**
+- **📄 Documents Page**: Manage indexed documents with categories, view metadata, and re-index
+- **📈 Analytics Page**: View system statistics, usage patterns, and performance metrics
+- **👥 Activities Page**: Monitor real-time user activities, session tracking, and engagement metrics
+- **🔍 RAG Quality Analytics**: Evaluate answer quality with automated testing and detailed reports
+
 ### Response Modes
 
 - **text**: Simple text responses
@@ -107,31 +156,55 @@ python main.py
 
 ```
 service-desk-assistant/
-├── handlers/           # Message and command handlers
+├── handlers/                    # Message and command handlers
 │   └── message_handler.py
-├── services/           # External API services
-│   ├── yandex_service.py    # Yandex AI (GPT, STT, TTS)
-│   ├── supabase_service.py  # Vector database operations
-│   ├── voice_manager.py     # TTS caching and voice management
-│   └── unanswered_logger.py # Unanswered questions tracking
-├── utils/              # Utility functions
-│   ├── logger.py       # Logging configuration
-│   ├── file_handler.py # File download and processing
-│   ├── temp_manager.py # Temporary file cleanup
-│   └── prompt_builder.py    # Dynamic prompt construction
-├── rag/                # RAG system components
-│   └── supabase_manager.py  # Document indexing and search
-├── data/               # Documents to index (mounted as volume)
-│   ├── tts_cache/      # Cached TTS audio files
-│   ├── unanswered_questions.json  # Log of unanswered questions
-│   └── user_preferences.json      # User preference storage
-├── temp/               # Temporary files (auto-cleaned)
-├── config.py           # Configuration constants
-├── main.py             # Application entry point
-├── webhook_server.py   # Webhook HTTP server
-├── manage_unanswered.py # Tool for managing unanswered questions
-├── test_rag.py         # RAG system testing utility
-└── docker-compose.yml  # Docker orchestration
+├── services/                    # External API services
+│   ├── yandex_service.py        # Yandex AI (GPT, STT, TTS)
+│   ├── supabase_service.py      # Vector database operations
+│   ├── voice_manager.py         # TTS caching and voice management
+│   └── unanswered_logger.py     # Unanswered questions tracking
+├── utils/                       # Utility functions
+│   ├── logger.py                # Logging configuration
+│   ├── file_handler.py          # File download and processing
+│   ├── temp_manager.py          # Temporary file cleanup
+│   ├── prompt_builder.py        # Dynamic prompt construction
+│   ├── document_validator.py    # Document validation and categorization
+│   └── rag_cache.py             # RAG query caching system
+├── rag/                         # RAG system components
+│   └── supabase_manager.py      # Document indexing, search, and chat history
+├── admin_panel/                 # Streamlit admin interface
+│   ├── app.py                   # Main admin panel application
+│   ├── api/                     # API endpoints
+│   │   └── rag_api.py           # RAG analytics API
+│   ├── components/              # Reusable UI components
+│   │   └── document_table.py    # Document management table
+│   └── pages/                   # Admin panel pages
+│       ├── 1_📄_Documents.py    # Document management
+│       ├── 2_📈_Analytics.py    # System analytics
+│       ├── 3_👥_Activities.py   # User activity monitoring
+│       └── 4_🔍_RAG_Quality_Analytics.py  # RAG quality evaluation
+├── data/                        # Data directory (mounted as volume)
+│   ├── tts_cache/               # Cached TTS audio files
+│   ├── unanswered_questions.json # Log of unanswered questions
+│   ├── user_preferences.json    # User preference storage
+│   ├── rag_analytics/           # RAG evaluation results
+│   └── test_questions.json      # Test questions for RAG evaluation
+├── migrations/                  # Database migrations
+│   ├── 002_create_chat_history.sql
+│   └── create_rag_quality_metrics_table.sql
+├── scripts/                     # Utility and optimization scripts
+│   ├── rag_quality_analytics.py # RAG quality evaluation script
+│   ├── rag_analytics_api.py     # Analytics API server
+│   ├── optimize_chunk_lengths.py # Chunk optimization utility
+│   ├── add_categories_to_documents.py # Document categorization
+│   └── apply_*_migration.py     # Migration application scripts
+├── temp/                        # Temporary files (auto-cleaned)
+├── config.py                    # Configuration constants
+├── main.py                      # Application entry point
+├── webhook_server.py            # Webhook HTTP server
+├── manage_unanswered.py         # Tool for managing unanswered questions
+├── test_rag.py                  # RAG system testing utility
+└── docker-compose.yml           # Docker orchestration
 ```
 
 ## Monitoring
@@ -230,7 +303,77 @@ curl -X POST https://your-domain.com/webhook \
   -d '{"test": true}'
 ```
 
+### RAG Quality Issues
+
+1. Run RAG quality analytics to identify problems:
+```bash
+python scripts/rag_quality_analytics.py
+```
+
+2. Check RAG cache status:
+```bash
+ls -la data/rag_analytics/
+```
+
+3. Optimize chunk lengths for better retrieval:
+```bash
+python scripts/optimize_chunk_lengths.py
+```
+
+4. Review quality metrics in admin panel under "RAG Quality Analytics"
+
+### Admin Panel Not Working
+
+1. Ensure Streamlit is installed:
+```bash
+pip install streamlit
+```
+
+2. Check if admin panel is running:
+```bash
+ps aux | grep streamlit
+```
+
+3. Verify admin panel dependencies:
+```bash
+cd admin_panel && pip install -r requirements.txt
+```
+
+4. Check admin panel logs for errors
+
+### Chat History Not Tracking
+
+1. Verify chat_history table exists in Supabase:
+```sql
+SELECT * FROM chat_history LIMIT 5;
+```
+
+2. Apply migration if needed:
+```bash
+python scripts/apply_chat_history_migration.py
+```
+
+3. Check message handler logs:
+```bash
+docker compose logs max-bot-webhook | grep "chat_history"
+```
+
 ## Performance Tuning
+
+### RAG Query Caching
+
+Enable RAG caching to improve response times for repeated queries:
+```python
+# In utils/rag_cache.py
+# Cache is automatically enabled
+# Configure TTL in config.py
+RAG_CACHE_TTL = 3600  # seconds
+```
+
+Check cache statistics:
+```bash
+python -c "from utils.rag_cache import rag_cache; print(rag_cache.get_stats())"
+```
 
 ### Vector Search Optimization
 
@@ -243,6 +386,17 @@ CREATE INDEX ... WITH (lists = 200);
 CREATE INDEX ... WITH (lists = 50);
 ```
 
+### Chunk Length Optimization
+
+Optimize document chunk lengths for better retrieval:
+```bash
+# Run optimization script
+python scripts/optimize_chunk_lengths.py
+
+# Apply recommended settings
+# Check results in admin panel -> RAG Quality Analytics
+```
+
 ### Temporary File Cleanup
 
 Modify cleanup intervals in `main.py`:
@@ -252,6 +406,17 @@ schedule_periodic_cleanup(interval_seconds=1800)
 
 # Clean every hour
 schedule_periodic_cleanup(interval_seconds=3600)
+```
+
+### Database Indexes
+
+Ensure proper indexes are created:
+```bash
+# Apply chat history migration
+python scripts/apply_chat_history_migration.py
+
+# Apply RAG quality metrics migration
+python scripts/apply_rag_quality_migration.py
 ```
 
 ## Security Notes
