@@ -1,28 +1,28 @@
 # Service Desk Assistant Bot
 
-AI-powered service desk assistant bot with advanced RAG (Retrieval-Augmented Generation), analytics, and comprehensive admin panel.
+Бот-ассистент службы поддержки с искусственным интеллектом, расширенной системой RAG (Retrieval-Augmented Generation), аналитикой и комплексной админ-панелью.
 
-## Features
+## Возможности
 
-- 🤖 **Multi-modal input**: Text, voice messages, and images
-- 🧠 **Advanced RAG System**: Semantic search with context-aware responses using Supabase + pgvector
-- 🎙️ **Voice Support**: Speech-to-text (STT) and text-to-speech (TTS) via Yandex SpeechKit with intelligent caching
-- 📸 **Image Processing**: Automatic image analysis and description extraction
-- 📚 **Smart Document Indexing**: Automatic indexing of .docx and .txt files with category support
-- ❓ **Unanswered Questions Tracking**: Automatic logging for knowledge base improvement
-- 💬 **Multiple Response Modes**: text, rag (with context), and voice modes
-- 🔄 **Webhook Integration**: Real-time message processing via MAX Messenger API
-- 👤 **User Preferences**: Personalized responses based on interaction history
-- 📊 **Comprehensive Admin Panel**: Streamlit-based interface with full analytics
-  - 📈 **Chat History**: Complete conversation tracking with context
-  - 📉 **RAG Quality Analytics**: Automated evaluation of answer quality with metrics
-  - 👥 **User Activities**: Real-time monitoring of user interactions and engagement
-  - 📄 **Document Management**: Advanced document table with categories and filtering
-  - 📊 **Analytics Dashboard**: Visual insights into system performance and usage
-- ⚡ **Performance Optimization**: RAG query caching and optimized chunk lengths
-- 🔍 **Context-Aware Responses**: Chat history integration for better conversation flow
+- 🤖 **Мультимодальный ввод**: Текст, голосовые сообщения и изображения
+- 🧠 **Продвинутая система RAG**: Семантический поиск с контекстно-зависимыми ответами на базе Supabase + pgvector
+- 🎙️ **Голосовая поддержка**: Распознавание речи (STT) и синтез речи (TTS) через Yandex SpeechKit с интеллектуальным кэшированием
+- 📸 **Обработка изображений**: Автоматический анализ изображений и извлечение описаний
+- 📚 **Умное индексирование документов**: Автоматическая индексация файлов .docx и .txt с поддержкой категорий
+- ❓ **Отслеживание неотвеченных вопросов**: Автоматическое логирование для улучшения базы знаний
+- 💬 **Несколько режимов ответа**: text, rag (с контекстом) и voice
+- 🔄 **Интеграция вебхуков**: Обработка сообщений в реальном времени через MAX Messenger API
+- 👤 **Пользовательские предпочтения**: Персонализированные ответы на основе истории взаимодействий
+- 📊 **Комплексная админ-панель**: Интерфейс на базе Streamlit с полной аналитикой
+  - 📈 **История чатов**: Полное отслеживание разговоров с контекстом
+  - 📉 **Аналитика качества RAG**: Автоматическая оценка качества ответов с метриками
+  - 👥 **Активности пользователей**: Мониторинг взаимодействий и вовлеченности в реальном времени
+  - 📄 **Управление документами**: Расширенная таблица документов с категориями и фильтрацией
+  - 📊 **Панель аналитики**: Визуальные инсайты о производительности системы и использовании
+- ⚡ **Оптимизация производительности**: Кэширование RAG-запросов и оптимизированная длина чанков
+- 🔍 **Контекстно-зависимые ответы**: Интеграция истории чатов для лучшего потока разговора
 
-## Architecture
+## Архитектура
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
@@ -38,23 +38,23 @@ AI-powered service desk assistant bot with advanced RAG (Retrieval-Augmented Gen
             └──────────────┘          └──────────────┘   └──────────────┘
 ```
 
-## Quick Start
+## Быстрый старт
 
-### Prerequisites
+### Требования
 
-- Docker & Docker Compose
-- MAX Bot Token
-- Yandex Cloud API Key & Folder ID
-- Supabase Project URL & Anon Key
+- Docker и Docker Compose
+- Токен MAX Bot
+- API Key и Folder ID Яндекс.Облака
+- URL проекта Supabase и Anon Key
 
-### Configuration
+### Конфигурация
 
-1. Copy `.env.example` to `.env`:
+1. Скопируйте `.env.example` в `.env`:
 ```bash
 cp .env.example .env
 ```
 
-2. Fill in your credentials in `.env`:
+2. Заполните учетные данные в `.env`:
 ```env
 MAX_BOT_TOKEN=your_max_bot_token
 YANDEX_API_KEY=your_yandex_api_key
@@ -64,158 +64,158 @@ SUPABASE_ANON_KEY=your_anon_key
 WEBHOOK_URL=https://your-domain.com/webhook
 ```
 
-### Running with Docker
+### Запуск через Docker
 
 ```bash
-# Build and start
+# Сборка и запуск
 docker compose up -d --build
 
-# Check logs
+# Просмотр логов
 docker compose logs -f max-bot-webhook
 
-# Stop
+# Остановка
 docker compose down
 ```
 
-### Running Admin Panel
+### Запуск админ-панели
 
-The admin panel provides comprehensive analytics and management:
+Админ-панель предоставляет комплексную аналитику и управление:
 
 ```bash
-# Install admin panel dependencies
+# Установка зависимостей админ-панели
 cd admin_panel
 pip install -r requirements.txt
 
-# Start Streamlit admin panel
+# Запуск админ-панели Streamlit
 streamlit run app.py
 ```
 
-Access the admin panel at `http://localhost:8501`
+Доступ к админ-панели по адресу `http://localhost:8501`
 
-### Database Migrations
+### Миграции базы данных
 
-Apply necessary database migrations for new features:
+Примените необходимые миграции базы данных для новых функций:
 
 ```bash
-# Apply chat history migration
+# Применение миграции истории чатов
 python scripts/apply_chat_history_migration.py
 
-# Apply RAG quality metrics migration
+# Применение миграции метрик качества RAG
 python scripts/apply_rag_quality_migration.py
 ```
 
-### Manual Setup (Development)
+### Ручная настройка (для разработки)
 
 ```bash
-# Install dependencies
+# Установка зависимостей
 pip install -r requirements.txt
 
-# Run bot
+# Запуск бота
 python main.py
 ```
 
-## Usage
+## Использование
 
-### Commands
+### Команды
 
-- `/start` - Show welcome message
-- `/mode [text|rag|voice]` - Switch response mode
-- `/index` - Index documents from `data/` folder
-- `/stats` - Show knowledge base statistics
-- `/unanswered` - View unanswered questions log
-- `/help` - Show help message
+- `/start` - Показать приветственное сообщение
+- `/mode [text|rag|voice]` - Переключить режим ответа
+- `/index` - Индексировать документы из папки `data/`
+- `/stats` - Показать статистику базы знаний
+- `/unanswered` - Просмотреть журнал неотвеченных вопросов
+- `/help` - Показать справку
 
-### Admin Panel
+### Админ-панель
 
-Access the admin panel at `http://localhost:8501` (or your configured port):
+Доступ к админ-панели по адресу `http://localhost:8501` (или ваш настроенный порт):
 
 ```bash
-# Start admin panel
+# Запуск админ-панели
 cd admin_panel && streamlit run app.py
 ```
 
-**Admin Panel Features:**
-- **📄 Documents Page**: Manage indexed documents with categories, view metadata, and re-index
-- **📈 Analytics Page**: View system statistics, usage patterns, and performance metrics
-- **👥 Activities Page**: Monitor real-time user activities, session tracking, and engagement metrics
-- **🔍 RAG Quality Analytics**: Evaluate answer quality with automated testing and detailed reports
+**Функции админ-панели:**
+- **📄 Страница документов**: Управление индексированными документами с категориями, просмотр метаданных и переиндексация
+- **📈 Страница аналитики**: Просмотр статистики системы, паттернов использования и метрик производительности
+- **👥 Страница активностей**: Мониторинг активностей пользователей в реальном времени, отслеживание сессий и метрики вовлеченности
+- **🔍 Аналитика качества RAG**: Оценка качества ответов с автоматическим тестированием и детальными отчетами
 
-### Response Modes
+### Режимы ответа
 
-- **text**: Simple text responses
-- **rag**: Responses with context from indexed documents
-- **voice**: Voice responses (text-to-speech)
+- **text**: Простые текстовые ответы
+- **rag**: Ответы с контекстом из индексированных документов
+- **voice**: Голосовые ответы (синтез речи)
 
-### Adding Documents
+### Добавление документов
 
-1. Place `.docx` or `.txt` files in the `data/` directory
-2. Send `/index` command to the bot
-3. Documents will be chunked, embedded, and stored in Supabase
+1. Поместите файлы `.docx` или `.txt` в директорию `data/`
+2. Отправьте команду `/index` боту
+3. Документы будут разделены на чанки, векторизованы и сохранены в Supabase
 
-## Project Structure
+## Структура проекта
 
 ```
 service-desk-assistant/
-├── handlers/                    # Message and command handlers
+├── handlers/                    # Обработчики сообщений и команд
 │   └── message_handler.py
-├── services/                    # External API services
+├── services/                    # Сервисы внешних API
 │   ├── yandex_service.py        # Yandex AI (GPT, STT, TTS)
-│   ├── supabase_service.py      # Vector database operations
-│   ├── voice_manager.py         # TTS caching and voice management
-│   └── unanswered_logger.py     # Unanswered questions tracking
-├── utils/                       # Utility functions
-│   ├── logger.py                # Logging configuration
-│   ├── file_handler.py          # File download and processing
-│   ├── temp_manager.py          # Temporary file cleanup
-│   ├── prompt_builder.py        # Dynamic prompt construction
-│   ├── document_validator.py    # Document validation and categorization
-│   └── rag_cache.py             # RAG query caching system
-├── rag/                         # RAG system components
-│   └── supabase_manager.py      # Document indexing, search, and chat history
-├── admin_panel/                 # Streamlit admin interface
-│   ├── app.py                   # Main admin panel application
+│   ├── supabase_service.py      # Операции с векторной базой данных
+│   ├── voice_manager.py         # Кэширование TTS и управление голосом
+│   └── unanswered_logger.py     # Отслеживание неотвеченных вопросов
+├── utils/                       # Утилиты
+│   ├── logger.py                # Конфигурация логирования
+│   ├── file_handler.py          # Загрузка и обработка файлов
+│   ├── temp_manager.py          # Очистка временных файлов
+│   ├── prompt_builder.py        # Динамическое построение промптов
+│   ├── document_validator.py    # Валидация и категоризация документов
+│   └── rag_cache.py             # Система кэширования RAG-запросов
+├── rag/                         # Компоненты системы RAG
+│   └── supabase_manager.py      # Индексация документов, поиск и история чатов
+├── admin_panel/                 # Админ-интерфейс Streamlit
+│   ├── app.py                   # Основное приложение админ-панели
 │   ├── api/                     # API endpoints
-│   │   └── rag_api.py           # RAG analytics API
-│   ├── components/              # Reusable UI components
-│   │   └── document_table.py    # Document management table
-│   └── pages/                   # Admin panel pages
-│       ├── 1_📄_Documents.py    # Document management
-│       ├── 2_📈_Analytics.py    # System analytics
-│       ├── 3_👥_Activities.py   # User activity monitoring
-│       └── 4_🔍_RAG_Quality_Analytics.py  # RAG quality evaluation
-├── data/                        # Data directory (mounted as volume)
-│   ├── tts_cache/               # Cached TTS audio files
-│   ├── unanswered_questions.json # Log of unanswered questions
-│   ├── user_preferences.json    # User preference storage
-│   ├── rag_analytics/           # RAG evaluation results
-│   └── test_questions.json      # Test questions for RAG evaluation
-├── migrations/                  # Database migrations
+│   │   └── rag_api.py           # API аналитики RAG
+│   ├── components/              # Переиспользуемые UI компоненты
+│   │   └── document_table.py    # Таблица управления документами
+│   └── pages/                   # Страницы админ-панели
+│       ├── 1_📄_Documents.py    # Управление документами
+│       ├── 2_📈_Analytics.py    # Системная аналитика
+│       ├── 3_👥_Activities.py   # Мониторинг активностей пользователей
+│       └── 4_🔍_RAG_Quality_Analytics.py  # Оценка качества RAG
+├── data/                        # Директория данных (монтируется как volume)
+│   ├── tts_cache/               # Кэшированные аудиофайлы TTS
+│   ├── unanswered_questions.json # Журнал неотвеченных вопросов
+│   ├── user_preferences.json    # Хранилище пользовательских предпочтений
+│   ├── rag_analytics/           # Результаты оценки RAG
+│   └── test_questions.json      # Тестовые вопросы для оценки RAG
+├── migrations/                  # Миграции базы данных
 │   ├── 002_create_chat_history.sql
 │   └── create_rag_quality_metrics_table.sql
-├── scripts/                     # Utility and optimization scripts
-│   ├── rag_quality_analytics.py # RAG quality evaluation script
-│   ├── rag_analytics_api.py     # Analytics API server
-│   ├── optimize_chunk_lengths.py # Chunk optimization utility
-│   ├── add_categories_to_documents.py # Document categorization
-│   └── apply_*_migration.py     # Migration application scripts
-├── temp/                        # Temporary files (auto-cleaned)
-├── config.py                    # Configuration constants
-├── main.py                      # Application entry point
-├── webhook_server.py            # Webhook HTTP server
-├── manage_unanswered.py         # Tool for managing unanswered questions
-├── test_rag.py                  # RAG system testing utility
-└── docker-compose.yml           # Docker orchestration
+├── scripts/                     # Утилиты и скрипты оптимизации
+│   ├── rag_quality_analytics.py # Скрипт оценки качества RAG
+│   ├── rag_analytics_api.py     # Сервер API аналитики
+│   ├── optimize_chunk_lengths.py # Утилита оптимизации чанков
+│   ├── add_categories_to_documents.py # Категоризация документов
+│   └── apply_*_migration.py     # Скрипты применения миграций
+├── temp/                        # Временные файлы (автоочистка)
+├── config.py                    # Константы конфигурации
+├── main.py                      # Точка входа приложения
+├── webhook_server.py            # HTTP сервер вебхуков
+├── manage_unanswered.py         # Инструмент управления неотвеченными вопросами
+├── test_rag.py                  # Утилита тестирования системы RAG
+└── docker-compose.yml           # Оркестрация Docker
 ```
 
-## Monitoring
+## Мониторинг
 
-### Health Check
+### Проверка здоровья
 
 ```bash
 curl http://localhost:8081/health
 ```
 
-Response:
+Ответ:
 ```json
 {
   "status": "healthy",
@@ -225,227 +225,227 @@ Response:
 }
 ```
 
-### Logs
+### Логи
 
 ```bash
-# View logs
+# Просмотр логов
 docker compose logs max-bot-webhook
 
-# Follow logs
+# Отслеживание логов в реальном времени
 docker compose logs -f max-bot-webhook
 
-# Filter errors
+# Фильтрация ошибок
 docker compose logs max-bot-webhook | grep ERROR
 ```
 
-## Troubleshooting
+## Устранение неполадок
 
-### Voice Messages Not Working
+### Не работают голосовые сообщения
 
-1. Check ffmpeg is installed in container:
+1. Проверьте установку ffmpeg в контейнере:
 ```bash
 docker exec max-bot-webhook which ffmpeg
 ```
 
-2. Verify Yandex API key has SpeechKit permissions
+2. Убедитесь, что API ключ Яндекса имеет права SpeechKit
 
-3. Check logs for STT errors:
+3. Проверьте логи на ошибки STT:
 ```bash
 docker compose logs max-bot-webhook | grep "STT"
 ```
 
-4. Check TTS cache directory permissions:
+4. Проверьте права доступа к директории кэша TTS:
 ```bash
 ls -la data/tts_cache/
 ```
 
-### Document Indexing Fails
+### Ошибка индексации документов
 
-1. Ensure documents are in `data/` directory
-2. Check Supabase connection:
+1. Убедитесь, что документы находятся в директории `data/`
+2. Проверьте подключение к Supabase:
 ```bash
 curl -H "apikey: YOUR_ANON_KEY" https://YOUR_PROJECT.supabase.co/rest/v1/documents?select=count
 ```
 
-3. Verify vector extension is installed:
+3. Убедитесь, что расширение vector установлено:
 ```sql
 SELECT * FROM pg_extension WHERE extname = 'vector';
 ```
 
-### Image Processing Issues
+### Проблемы с обработкой изображений
 
-1. Verify image files are properly attached in MAX Messenger
-2. Check logs for image processing errors:
+1. Убедитесь, что файлы изображений правильно прикреплены в MAX Messenger
+2. Проверьте логи на ошибки обработки изображений:
 ```bash
 docker compose logs max-bot-webhook | grep "image"
 ```
 
-3. Ensure Yandex Vision API is enabled in your Yandex Cloud account
+3. Убедитесь, что Yandex Vision API включен в вашем аккаунте Яндекс.Облака
 
-### Unanswered Questions Not Logged
+### Не логируются неотвеченные вопросы
 
-1. Check if `data/unanswered_questions.json` exists and is writable
-2. Verify unanswered logger service is initialized:
+1. Проверьте, существует ли `data/unanswered_questions.json` и доступен ли для записи
+2. Убедитесь, что сервис логирования неотвеченных вопросов инициализирован:
 ```bash
 docker compose logs max-bot-webhook | grep "unanswered"
 ```
 
-3. Use `/unanswered` command to view logged questions
+3. Используйте команду `/unanswered` для просмотра залогированных вопросов
 
-### Webhook Not Receiving Messages
+### Вебхук не получает сообщения
 
-1. Verify webhook URL is accessible from internet
-2. Check MAX Bot webhook configuration
-3. Test endpoint:
+1. Убедитесь, что URL вебхука доступен из интернета
+2. Проверьте конфигурацию вебхука MAX Bot
+3. Протестируйте endpoint:
 ```bash
 curl -X POST https://your-domain.com/webhook \
   -H "Content-Type: application/json" \
   -d '{"test": true}'
 ```
 
-### RAG Quality Issues
+### Проблемы с качеством RAG
 
-1. Run RAG quality analytics to identify problems:
+1. Запустите аналитику качества RAG для выявления проблем:
 ```bash
 python scripts/rag_quality_analytics.py
 ```
 
-2. Check RAG cache status:
+2. Проверьте статус кэша RAG:
 ```bash
 ls -la data/rag_analytics/
 ```
 
-3. Optimize chunk lengths for better retrieval:
+3. Оптимизируйте длину чанков для лучшего поиска:
 ```bash
 python scripts/optimize_chunk_lengths.py
 ```
 
-4. Review quality metrics in admin panel under "RAG Quality Analytics"
+4. Просмотрите метрики качества в админ-панели в разделе "Аналитика качества RAG"
 
-### Admin Panel Not Working
+### Не работает админ-панель
 
-1. Ensure Streamlit is installed:
+1. Убедитесь, что Streamlit установлен:
 ```bash
 pip install streamlit
 ```
 
-2. Check if admin panel is running:
+2. Проверьте, запущена ли админ-панель:
 ```bash
 ps aux | grep streamlit
 ```
 
-3. Verify admin panel dependencies:
+3. Проверьте зависимости админ-панели:
 ```bash
 cd admin_panel && pip install -r requirements.txt
 ```
 
-4. Check admin panel logs for errors
+4. Проверьте логи админ-панели на наличие ошибок
 
-### Chat History Not Tracking
+### Не отслеживается история чатов
 
-1. Verify chat_history table exists in Supabase:
+1. Убедитесь, что таблица chat_history существует в Supabase:
 ```sql
 SELECT * FROM chat_history LIMIT 5;
 ```
 
-2. Apply migration if needed:
+2. Примените миграцию при необходимости:
 ```bash
 python scripts/apply_chat_history_migration.py
 ```
 
-3. Check message handler logs:
+3. Проверьте логи обработчика сообщений:
 ```bash
 docker compose logs max-bot-webhook | grep "chat_history"
 ```
 
-## Performance Tuning
+## Оптимизация производительности
 
-### RAG Query Caching
+### Кэширование RAG-запросов
 
-Enable RAG caching to improve response times for repeated queries:
+Включите кэширование RAG для улучшения времени ответа на повторяющиеся запросы:
 ```python
-# In utils/rag_cache.py
-# Cache is automatically enabled
-# Configure TTL in config.py
-RAG_CACHE_TTL = 3600  # seconds
+# В utils/rag_cache.py
+# Кэш автоматически включен
+# Настройте TTL в config.py
+RAG_CACHE_TTL = 3600  # секунды
 ```
 
-Check cache statistics:
+Проверьте статистику кэша:
 ```bash
 python -c "from utils.rag_cache import rag_cache; print(rag_cache.get_stats())"
 ```
 
-### Vector Search Optimization
+### Оптимизация векторного поиска
 
-Adjust IVFFlat index parameters in `rag/supabase_manager.py`:
+Настройте параметры индекса IVFFlat в `rag/supabase_manager.py`:
 ```python
-# Increase lists for better accuracy (slower search)
+# Увеличьте lists для лучшей точности (медленнее поиск)
 CREATE INDEX ... WITH (lists = 200);
 
-# Decrease lists for faster search (lower accuracy)
+# Уменьшите lists для более быстрого поиска (ниже точность)
 CREATE INDEX ... WITH (lists = 50);
 ```
 
-### Chunk Length Optimization
+### Оптимизация длины чанков
 
-Optimize document chunk lengths for better retrieval:
+Оптимизируйте длину чанков документов для лучшего поиска:
 ```bash
-# Run optimization script
+# Запуск скрипта оптимизации
 python scripts/optimize_chunk_lengths.py
 
-# Apply recommended settings
-# Check results in admin panel -> RAG Quality Analytics
+# Применение рекомендованных настроек
+# Проверьте результаты в админ-панели -> Аналитика качества RAG
 ```
 
-### Temporary File Cleanup
+### Очистка временных файлов
 
-Modify cleanup intervals in `main.py`:
+Измените интервалы очистки в `main.py`:
 ```python
-# Clean every 30 minutes (default)
+# Очистка каждые 30 минут (по умолчанию)
 schedule_periodic_cleanup(interval_seconds=1800)
 
-# Clean every hour
+# Очистка каждый час
 schedule_periodic_cleanup(interval_seconds=3600)
 ```
 
-### Database Indexes
+### Индексы базы данных
 
-Ensure proper indexes are created:
+Убедитесь, что созданы правильные индексы:
 ```bash
-# Apply chat history migration
+# Применение миграции истории чатов
 python scripts/apply_chat_history_migration.py
 
-# Apply RAG quality metrics migration
+# Применение миграции метрик качества RAG
 python scripts/apply_rag_quality_migration.py
 ```
 
-## Security Notes
+## Примечания по безопасности
 
-- ⚠️ Never commit `.env` file to version control
-- 🔒 Use HTTPS for webhook endpoints in production
-- 🛡️ Rotate API keys regularly
-- 📝 Monitor access logs for suspicious activity
+- ⚠️ Никогда не коммитьте файл `.env` в систему контроля версий
+- 🔒 Используйте HTTPS для webhook endpoints в production
+- 🛡️ Регулярно обновляйте API ключи
+- 📝 Мониторьте логи доступа на подозрительную активность
 
-## License
+## Лицензия
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+Этот проект лицензирован под Apache License 2.0 - подробности см. в файле [LICENSE](LICENSE).
 
-### Summary
+### Краткое описание
 
-- ✅ Commercial use
-- ✅ Modification
-- ✅ Distribution
-- ✅ Patent use
-- ✅ Private use
-- ❌ Liability
-- ❌ Warranty
-- ℹ️ License and copyright notice
-- ℹ️ State changes
+- ✅ Коммерческое использование
+- ✅ Модификация
+- ✅ Распространение
+- ✅ Использование патентов
+- ✅ Частное использование
+- ❌ Ответственность
+- ❌ Гарантия
+- ℹ️ Уведомление о лицензии и авторских правах
+- ℹ️ Отметка об изменениях
 
-## Contributing
+## Участие в разработке
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+1. Форкните репозиторий
+2. Создайте feature branch (`git checkout -b feature/amazing-feature`)
+3. Закоммитьте изменения (`git commit -m 'Add amazing feature'`)
+4. Отправьте в branch (`git push origin feature/amazing-feature`)
+5. Откройте Pull Request
