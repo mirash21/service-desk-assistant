@@ -21,13 +21,15 @@ def show_document_table(api: RAGApi, category: str = 'Все', search: str = '')
     
     page_size = 20
     
-    # Fetch documents
-    result = api.get_documents(
-        page=st.session_state.doc_page,
-        page_size=page_size,
-        category=category,
-        search=search
-    )
+    # Cache key for documents based on filters
+    cache_key = f"docs_{category}_{search}_{st.session_state.doc_page}_{page_size}"
+    
+    # Fetch documents with caching
+    @st.cache_data(ttl=30)
+    def get_cached_documents(cat, srch, pg, ps):
+        return api.get_documents(page=pg, page_size=ps, category=cat, search=srch)
+    
+    result = get_cached_documents(category, search, st.session_state.doc_page, page_size)
     
     docs = result['documents']
     total = result['total']

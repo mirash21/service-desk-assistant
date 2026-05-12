@@ -32,6 +32,18 @@ if 'edit_doc_metadata' not in st.session_state:
 # Initialize API
 api = RAGApi()
 
+# Cache functions for better performance
+@st.cache_data(ttl=60)
+def get_cached_categories():
+    """Кэшированный список категорий"""
+    return api.get_categories()
+
+@st.cache_data(ttl=30)
+def get_cached_total_docs():
+    """Кэшированное общее количество документов"""
+    result = api.get_documents(page=1, page_size=1)
+    return result['total']
+
 # Title
 st.title("📚 Управление базой знаний")
 
@@ -39,8 +51,9 @@ st.title("📚 Управление базой знаний")
 with st.sidebar:
     st.header("🔍 Фильтры")
     
-    # Get available categories
-    categories = api.get_categories()
+    # Get available categories with caching
+    with st.spinner("Загрузка..."):
+        categories = get_cached_categories()
     category_options = ['Все'] + categories
     
     # Category filter
@@ -76,9 +89,9 @@ with st.sidebar:
     # Quick stats
     st.subheader("📊 Быстрая статистика")
     
-    # Get total count
-    result = api.get_documents(page=1, page_size=1)
-    total_docs = result['total']
+    # Get total count with caching
+    with st.spinner("Загрузка..."):
+        total_docs = get_cached_total_docs()
     
     st.metric("Всего документов", total_docs)
     

@@ -21,22 +21,42 @@ st.title("📊 Аналитика и мониторинг")
 # Initialize API
 api = RAGApi()
 
+# Cache functions for better performance
+@st.cache_data(ttl=60)
+def get_cached_documents_sample():
+    """Кэшированный образец документов для аналитики"""
+    return api.get_documents(page=1, page_size=100)
+
+@st.cache_data(ttl=60)
+def get_cached_categories():
+    """Кэшированный список категорий"""
+    return api.get_categories()
+
+@st.cache_data(ttl=60)
+def get_cached_total_docs():
+    """Кэшированное общее количество документов"""
+    result = api.get_documents(page=1, page_size=1)
+    return result['total']
+
 # KPI Cards
 st.subheader("📈 Ключевые метрики")
 
 col1, col2, col3, col4 = st.columns(4)
 
-# Total documents
-result = api.get_documents(page=1, page_size=1)
-total_docs = result['total']
+# Total documents with caching
+with st.spinner("Загрузка..."):
+    total_docs = get_cached_total_docs()
 col1.metric("Всего документов", total_docs)
 
-# Categories count
-categories = api.get_categories()
+# Categories count with caching
+with st.spinner("Загрузка..."):
+    categories = get_cached_categories()
 col2.metric("Категорий", len(categories))
 
-# Documents with keywords (sample check)
-sample_result = api.get_documents(page=1, page_size=100)
+# Documents with keywords (sample check) with caching
+with st.spinner("Анализ..."):
+    sample_result = get_cached_documents_sample()
+
 docs_with_keywords = sum(
     1 for doc in sample_result['documents'] 
     if doc.get('metadata', {}).get('keywords')

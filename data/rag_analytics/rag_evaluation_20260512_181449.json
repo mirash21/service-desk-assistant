@@ -1,0 +1,3040 @@
+{
+  "timestamp": "2026-05-12T18:14:49.411306",
+  "summaries": [
+    {
+      "top_k_value": 3,
+      "avg_faithfulness": 0.234,
+      "avg_answer_relevance": 0.043,
+      "avg_context_precision": 0.547,
+      "avg_context_recall": 0.593,
+      "total_questions": 50,
+      "avg_evaluation_time": 0.0
+    },
+    {
+      "top_k_value": 5,
+      "avg_faithfulness": 0.234,
+      "avg_answer_relevance": 0.043,
+      "avg_context_precision": 0.547,
+      "avg_context_recall": 0.593,
+      "total_questions": 50,
+      "avg_evaluation_time": 0.0
+    },
+    {
+      "top_k_value": 10,
+      "avg_faithfulness": 0.234,
+      "avg_answer_relevance": 0.043,
+      "avg_context_precision": 0.547,
+      "avg_context_recall": 0.593,
+      "total_questions": 50,
+      "avg_evaluation_time": 0.0
+    }
+  ],
+  "detailed_results": {
+    "3": [
+      {
+        "question_id": "test_2190",
+        "question": "Windows зависает, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Windows зависает, что делать?",
+        "contexts": [
+          "Context 0 for question: Windows зависает, что делать?",
+          "Context 1 for question: Windows зависает, что делать?",
+          "Context 2 for question: Windows зависает, что делать?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400425",
+        "evaluation_time_seconds": 4.6e-05
+      },
+      {
+        "question_id": "test_2608",
+        "question": "Как безопасно удалить файлы?",
+        "answer": "Ответ на вопрос с top_k=3: Как безопасно удалить файлы?",
+        "contexts": [
+          "Context 0 for question: Как безопасно удалить файлы?",
+          "Context 1 for question: Как безопасно удалить файлы?",
+          "Context 2 for question: Как безопасно удалить файлы?"
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400525",
+        "evaluation_time_seconds": 3.9e-05
+      },
+      {
+        "question_id": "test_2609",
+        "question": "Как заказать новое оборудование?",
+        "answer": "Ответ на вопрос с top_k=3: Как заказать новое оборудование?",
+        "contexts": [
+          "Context 0 for question: Как заказать новое оборудование?",
+          "Context 1 for question: Как заказать новое оборудование?",
+          "Context 2 for question: Как заказать новое оборудование?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.041,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400599",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2610",
+        "question": "Как создать общую папку для отдела?",
+        "answer": "Ответ на вопрос с top_k=3: Как создать общую папку для отдела?",
+        "contexts": [
+          "Context 0 for question: Как создать общую папку для отдела?",
+          "Context 1 for question: Как создать общую папку для отдела?",
+          "Context 2 for question: Как создать общую папку для отдела?"
+        ],
+        "faithfulness": 0.245,
+        "answer_relevance": 0.057,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400657",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2611",
+        "question": "Не открывается PDF-файл.",
+        "answer": "Ответ на вопрос с top_k=3: Не открывается PDF-файл.",
+        "contexts": [
+          "Context 0 for question: Не открывается PDF-файл.",
+          "Context 1 for question: Не открывается PDF-файл.",
+          "Context 2 for question: Не открывается PDF-файл."
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400716",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2612",
+        "question": "Не работает копирование/вставка.",
+        "answer": "Ответ на вопрос с top_k=3: Не работает копирование/вставка.",
+        "contexts": [
+          "Context 0 for question: Не работает копирование/вставка.",
+          "Context 1 for question: Не работает копирование/вставка.",
+          "Context 2 for question: Не работает копирование/вставка."
+        ],
+        "faithfulness": 0.231,
+        "answer_relevance": 0.039,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400778",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2613",
+        "question": "Как очистить историю браузера?",
+        "answer": "Ответ на вопрос с top_k=3: Как очистить историю браузера?",
+        "contexts": [
+          "Context 0 for question: Как очистить историю браузера?",
+          "Context 1 for question: Как очистить историю браузера?",
+          "Context 2 for question: Как очистить историю браузера?"
+        ],
+        "faithfulness": 0.245,
+        "answer_relevance": 0.057,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400832",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2614",
+        "question": "Не печатается PDF-файл.",
+        "answer": "Ответ на вопрос с top_k=3: Не печатается PDF-файл.",
+        "contexts": [
+          "Context 0 for question: Не печатается PDF-файл.",
+          "Context 1 for question: Не печатается PDF-файл.",
+          "Context 2 for question: Не печатается PDF-файл."
+        ],
+        "faithfulness": 0.232,
+        "answer_relevance": 0.04,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400885",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2615",
+        "question": "Экран стал черным после обновления.",
+        "answer": "Ответ на вопрос с top_k=3: Экран стал черным после обновления.",
+        "contexts": [
+          "Context 0 for question: Экран стал черным после обновления.",
+          "Context 1 for question: Экран стал черным после обновления.",
+          "Context 2 for question: Экран стал черным после обновления."
+        ],
+        "faithfulness": 0.23,
+        "answer_relevance": 0.038,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.400955",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2616",
+        "question": "CRM работает медленно.",
+        "answer": "Ответ на вопрос с top_k=3: CRM работает медленно.",
+        "contexts": [
+          "Context 0 for question: CRM работает медленно.",
+          "Context 1 for question: CRM работает медленно.",
+          "Context 2 for question: CRM работает медленно."
+        ],
+        "faithfulness": 0.226,
+        "answer_relevance": 0.032,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401011",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2617",
+        "question": "Как экспортировать данные из CRM?",
+        "answer": "Ответ на вопрос с top_k=3: Как экспортировать данные из CRM?",
+        "contexts": [
+          "Context 0 for question: Как экспортировать данные из CRM?",
+          "Context 1 for question: Как экспортировать данные из CRM?",
+          "Context 2 for question: Как экспортировать данные из CRM?"
+        ],
+        "faithfulness": 0.247,
+        "answer_relevance": 0.059,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401070",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2618",
+        "question": "Забыл пароль от CRM.",
+        "answer": "Ответ на вопрос с top_k=3: Забыл пароль от CRM.",
+        "contexts": [
+          "Context 0 for question: Забыл пароль от CRM.",
+          "Context 1 for question: Забыл пароль от CRM.",
+          "Context 2 for question: Забыл пароль от CRM."
+        ],
+        "faithfulness": 0.25,
+        "answer_relevance": 0.062,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401124",
+        "evaluation_time_seconds": 2.6e-05
+      },
+      {
+        "question_id": "test_2619",
+        "question": "Как создать правило сортировки писем?",
+        "answer": "Ответ на вопрос с top_k=3: Как создать правило сортировки писем?",
+        "contexts": [
+          "Context 0 for question: Как создать правило сортировки писем?",
+          "Context 1 for question: Как создать правило сортировки писем?",
+          "Context 2 for question: Как создать правило сортировки писем?"
+        ],
+        "faithfulness": 0.22,
+        "answer_relevance": 0.025,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401182",
+        "evaluation_time_seconds": 2.5e-05
+      },
+      {
+        "question_id": "test_2620",
+        "question": "Как подключить корпоративную почту на телефон?",
+        "answer": "Ответ на вопрос с top_k=3: Как подключить корпоративную почту на телефон?",
+        "contexts": [
+          "Context 0 for question: Как подключить корпоративную почту на телефон?",
+          "Context 1 for question: Как подключить корпоративную почту на телефон?",
+          "Context 2 for question: Как подключить корпоративную почту на телефон?"
+        ],
+        "faithfulness": 0.241,
+        "answer_relevance": 0.052,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401237",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2621",
+        "question": "Потерял корпоративный телефон.",
+        "answer": "Ответ на вопрос с top_k=3: Потерял корпоративный телефон.",
+        "contexts": [
+          "Context 0 for question: Потерял корпоративный телефон.",
+          "Context 1 for question: Потерял корпоративный телефон.",
+          "Context 2 for question: Потерял корпоративный телефон."
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401298",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2210",
+        "question": "Как защитить телефон от взлома?",
+        "answer": "Ответ на вопрос с top_k=3: Как защитить телефон от взлома?",
+        "contexts": [
+          "Context 0 for question: Как защитить телефон от взлома?",
+          "Context 1 for question: Как защитить телефон от взлома?",
+          "Context 2 for question: Как защитить телефон от взлома?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401390",
+        "evaluation_time_seconds": 2.5e-05
+      },
+      {
+        "question_id": "test_2622",
+        "question": "Телефон не синхронизирует контакты.",
+        "answer": "Ответ на вопрос с top_k=3: Телефон не синхронизирует контакты.",
+        "contexts": [
+          "Context 0 for question: Телефон не синхронизирует контакты.",
+          "Context 1 for question: Телефон не синхронизирует контакты.",
+          "Context 2 for question: Телефон не синхронизирует контакты."
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401442",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2623",
+        "question": "Не видны другие компьютеры в сети.",
+        "answer": "Ответ на вопрос с top_k=3: Не видны другие компьютеры в сети.",
+        "contexts": [
+          "Context 0 for question: Не видны другие компьютеры в сети.",
+          "Context 1 for question: Не видны другие компьютеры в сети.",
+          "Context 2 for question: Не видны другие компьютеры в сети."
+        ],
+        "faithfulness": 0.226,
+        "answer_relevance": 0.033,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401499",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2220",
+        "question": "Как сообщить о проблеме с безопасностью?",
+        "answer": "Ответ на вопрос с top_k=3: Как сообщить о проблеме с безопасностью?",
+        "contexts": [
+          "Context 0 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 1 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 2 for question: Как сообщить о проблеме с безопасностью?"
+        ],
+        "faithfulness": 0.253,
+        "answer_relevance": 0.067,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401562",
+        "evaluation_time_seconds": 2e-05
+      },
+      {
+        "question_id": "test_2624",
+        "question": "Медленный интернет.",
+        "answer": "Ответ на вопрос с top_k=3: Медленный интернет.",
+        "contexts": [
+          "Context 0 for question: Медленный интернет.",
+          "Context 1 for question: Медленный интернет.",
+          "Context 2 for question: Медленный интернет."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.333,
+        "context_recall": 0.4,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401607",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2625",
+        "question": "Как настроить общий доступ к папке в сети?",
+        "answer": "Ответ на вопрос с top_k=3: Как настроить общий доступ к папке в сети?",
+        "contexts": [
+          "Context 0 for question: Как настроить общий доступ к папке в сети?",
+          "Context 1 for question: Как настроить общий доступ к папке в сети?",
+          "Context 2 for question: Как настроить общий доступ к папке в сети?"
+        ],
+        "faithfulness": 0.273,
+        "answer_relevance": 0.091,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401664",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2241",
+        "question": "Не открывается сайт, ошибка 404.",
+        "answer": "Ответ на вопрос с top_k=3: Не открывается сайт, ошибка 404.",
+        "contexts": [
+          "Context 0 for question: Не открывается сайт, ошибка 404.",
+          "Context 1 for question: Не открывается сайт, ошибка 404.",
+          "Context 2 for question: Не открывается сайт, ошибка 404."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.401721",
+        "evaluation_time_seconds": 0.001113
+      },
+      {
+        "question_id": "test_2626",
+        "question": "Какие часы работы IT-поддержки?",
+        "answer": "Ответ на вопрос с top_k=3: Какие часы работы IT-поддержки?",
+        "contexts": [
+          "Context 0 for question: Какие часы работы IT-поддержки?",
+          "Context 1 for question: Какие часы работы IT-поддержки?",
+          "Context 2 for question: Какие часы работы IT-поддержки?"
+        ],
+        "faithfulness": 0.225,
+        "answer_relevance": 0.031,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.402885",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2627",
+        "question": "Можно ли хранить рабочие файлы в личном облаке?",
+        "answer": "Ответ на вопрос с top_k=3: Можно ли хранить рабочие файлы в личном облаке?",
+        "contexts": [
+          "Context 0 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 1 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 2 for question: Можно ли хранить рабочие файлы в личном облаке?"
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.402964",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2300",
+        "question": "Как решить проблему с замена картриджа?",
+        "answer": "Ответ на вопрос с top_k=3: Как решить проблему с замена картриджа?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с замена картриджа?",
+          "Context 1 for question: Как решить проблему с замена картриджа?",
+          "Context 2 for question: Как решить проблему с замена картриджа?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403028",
+        "evaluation_time_seconds": 2.2e-05
+      },
+      {
+        "question_id": "test_2302",
+        "question": "Как решить проблему с настройка сканирования?",
+        "answer": "Ответ на вопрос с top_k=3: Как решить проблему с настройка сканирования?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с настройка сканирования?",
+          "Context 1 for question: Как решить проблему с настройка сканирования?",
+          "Context 2 for question: Как решить проблему с настройка сканирования?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403076",
+        "evaluation_time_seconds": 2.2e-05
+      },
+      {
+        "question_id": "test_2628",
+        "question": "Какие устройства разрешены для работы?",
+        "answer": "Ответ на вопрос с top_k=3: Какие устройства разрешены для работы?",
+        "contexts": [
+          "Context 0 for question: Какие устройства разрешены для работы?",
+          "Context 1 for question: Какие устройства разрешены для работы?",
+          "Context 2 for question: Какие устройства разрешены для работы?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403125",
+        "evaluation_time_seconds": 3.3e-05
+      },
+      {
+        "question_id": "test_2629",
+        "question": "Печать идет медленно.",
+        "answer": "Ответ на вопрос с top_k=3: Печать идет медленно.",
+        "contexts": [
+          "Context 0 for question: Печать идет медленно.",
+          "Context 1 for question: Печать идет медленно.",
+          "Context 2 for question: Печать идет медленно."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403189",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2304",
+        "question": "Как решить проблему с сетевая печать?",
+        "answer": "Ответ на вопрос с top_k=3: Как решить проблему с сетевая печать?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с сетевая печать?",
+          "Context 1 for question: Как решить проблему с сетевая печать?",
+          "Context 2 for question: Как решить проблему с сетевая печать?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403250",
+        "evaluation_time_seconds": 2.1e-05
+      },
+      {
+        "question_id": "test_2630",
+        "question": "Ошибка 'Driver unavailable' при печати.",
+        "answer": "Ответ на вопрос с top_k=3: Ошибка 'Driver unavailable' при печати.",
+        "contexts": [
+          "Context 0 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 1 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 2 for question: Ошибка 'Driver unavailable' при печати."
+        ],
+        "faithfulness": 0.243,
+        "answer_relevance": 0.054,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403304",
+        "evaluation_time_seconds": 2.9e-05
+      },
+      {
+        "question_id": "test_2631",
+        "question": "Почему нужно менять пароль раз в 90 дней?",
+        "answer": "Ответ на вопрос с top_k=3: Почему нужно менять пароль раз в 90 дней?",
+        "contexts": [
+          "Context 0 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 1 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 2 for question: Почему нужно менять пароль раз в 90 дней?"
+        ],
+        "faithfulness": 0.215,
+        "answer_relevance": 0.019,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403363",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2632",
+        "question": "Получил подозрительное письмо, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Получил подозрительное письмо, что делать?",
+        "contexts": [
+          "Context 0 for question: Получил подозрительное письмо, что делать?",
+          "Context 1 for question: Получил подозрительное письмо, что делать?",
+          "Context 2 for question: Получил подозрительное письмо, что делать?"
+        ],
+        "faithfulness": 0.23,
+        "answer_relevance": 0.037,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403425",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2305",
+        "question": "Не работает сетевая печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Не работает сетевая печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает сетевая печать, что делать?",
+          "Context 1 for question: Не работает сетевая печать, что делать?",
+          "Context 2 for question: Не работает сетевая печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403478",
+        "evaluation_time_seconds": 2.2e-05
+      },
+      {
+        "question_id": "test_2596",
+        "question": "Сколько места нужно для Windows?",
+        "answer": "Ответ на вопрос с top_k=3: Сколько места нужно для Windows?",
+        "contexts": [
+          "Context 0 for question: Сколько места нужно для Windows?",
+          "Context 1 for question: Сколько места нужно для Windows?",
+          "Context 2 for question: Сколько места нужно для Windows?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403530",
+        "evaluation_time_seconds": 2.2e-05
+      },
+      {
+        "question_id": "test_2633",
+        "question": "Как проверить компьютер на вирусы?",
+        "answer": "Ответ на вопрос с top_k=3: Как проверить компьютер на вирусы?",
+        "contexts": [
+          "Context 0 for question: Как проверить компьютер на вирусы?",
+          "Context 1 for question: Как проверить компьютер на вирусы?",
+          "Context 2 for question: Как проверить компьютер на вирусы?"
+        ],
+        "faithfulness": 0.221,
+        "answer_relevance": 0.026,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403581",
+        "evaluation_time_seconds": 2.6e-05
+      },
+      {
+        "question_id": "test_2634",
+        "question": "Ошибка 'Missing DLL' при запуске.",
+        "answer": "Ответ на вопрос с top_k=3: Ошибка 'Missing DLL' при запуске.",
+        "contexts": [
+          "Context 0 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 1 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 2 for question: Ошибка 'Missing DLL' при запуске."
+        ],
+        "faithfulness": 0.218,
+        "answer_relevance": 0.022,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403636",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2307",
+        "question": "Не работает двусторонняя печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Не работает двусторонняя печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает двусторонняя печать, что делать?",
+          "Context 1 for question: Не работает двусторонняя печать, что делать?",
+          "Context 2 for question: Не работает двусторонняя печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403697",
+        "evaluation_time_seconds": 2.2e-05
+      },
+      {
+        "question_id": "test_2635",
+        "question": "Программа работает очень медленно.",
+        "answer": "Ответ на вопрос с top_k=3: Программа работает очень медленно.",
+        "contexts": [
+          "Context 0 for question: Программа работает очень медленно.",
+          "Context 1 for question: Программа работает очень медленно.",
+          "Context 2 for question: Программа работает очень медленно."
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403749",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2636",
+        "question": "Программа не сохраняет файлы.",
+        "answer": "Ответ на вопрос с top_k=3: Программа не сохраняет файлы.",
+        "contexts": [
+          "Context 0 for question: Программа не сохраняет файлы.",
+          "Context 1 for question: Программа не сохраняет файлы.",
+          "Context 2 for question: Программа не сохраняет файлы."
+        ],
+        "faithfulness": 0.222,
+        "answer_relevance": 0.028,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403807",
+        "evaluation_time_seconds": 2.3e-05
+      },
+      {
+        "question_id": "test_2637",
+        "question": "Компьютер медленно загружается.",
+        "answer": "Ответ на вопрос с top_k=3: Компьютер медленно загружается.",
+        "contexts": [
+          "Context 0 for question: Компьютер медленно загружается.",
+          "Context 1 for question: Компьютер медленно загружается.",
+          "Context 2 for question: Компьютер медленно загружается."
+        ],
+        "faithfulness": 0.225,
+        "answer_relevance": 0.031,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403859",
+        "evaluation_time_seconds": 2.9e-05
+      },
+      {
+        "question_id": "test_2638",
+        "question": "Не работает звук на компьютере.",
+        "answer": "Ответ на вопрос с top_k=3: Не работает звук на компьютере.",
+        "contexts": [
+          "Context 0 for question: Не работает звук на компьютере.",
+          "Context 1 for question: Не работает звук на компьютере.",
+          "Context 2 for question: Не работает звук на компьютере."
+        ],
+        "faithfulness": 0.215,
+        "answer_relevance": 0.019,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403914",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2309",
+        "question": "Не работает цветная печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Не работает цветная печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает цветная печать, что делать?",
+          "Context 1 for question: Не работает цветная печать, что делать?",
+          "Context 2 for question: Не работает цветная печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.403979",
+        "evaluation_time_seconds": 2.2e-05
+      },
+      {
+        "question_id": "test_2639",
+        "question": "Потерялись файлы с рабочего стола.",
+        "answer": "Ответ на вопрос с top_k=3: Потерялись файлы с рабочего стола.",
+        "contexts": [
+          "Context 0 for question: Потерялись файлы с рабочего стола.",
+          "Context 1 for question: Потерялись файлы с рабочего стола.",
+          "Context 2 for question: Потерялись файлы с рабочего стола."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.404027",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2310",
+        "question": "Как решить проблему с настройка vpn?",
+        "answer": "Ответ на вопрос с top_k=3: Как решить проблему с настройка vpn?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с настройка vpn?",
+          "Context 1 for question: Как решить проблему с настройка vpn?",
+          "Context 2 for question: Как решить проблему с настройка vpn?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.404089",
+        "evaluation_time_seconds": 2.1e-05
+      },
+      {
+        "question_id": "test_2313",
+        "question": "Не работает подключение к wi-fi, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Не работает подключение к wi-fi, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 1 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 2 for question: Не работает подключение к wi-fi, что делать?"
+        ],
+        "faithfulness": 0.296,
+        "answer_relevance": 0.12,
+        "context_precision": 0.636,
+        "context_recall": 0.673,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.404145",
+        "evaluation_time_seconds": 2.3e-05
+      },
+      {
+        "question_id": "test_2315",
+        "question": "Не работает общий доступ к файлам, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Не работает общий доступ к файлам, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 1 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 2 for question: Не работает общий доступ к файлам, что делать?"
+        ],
+        "faithfulness": 0.323,
+        "answer_relevance": 0.154,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.404195",
+        "evaluation_time_seconds": 2.3e-05
+      },
+      {
+        "question_id": "test_2319",
+        "question": "Не работает dns настройки, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Не работает dns настройки, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает dns настройки, что делать?",
+          "Context 1 for question: Не работает dns настройки, что делать?",
+          "Context 2 for question: Не работает dns настройки, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.404247",
+        "evaluation_time_seconds": 2.2e-05
+      },
+      {
+        "question_id": "test_2320",
+        "question": "Как решить проблему с статический ip?",
+        "answer": "Ответ на вопрос с top_k=3: Как решить проблему с статический ip?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с статический ip?",
+          "Context 1 for question: Как решить проблему с статический ip?",
+          "Context 2 for question: Как решить проблему с статический ip?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.404298",
+        "evaluation_time_seconds": 2.1e-05
+      },
+      {
+        "question_id": "test_2323",
+        "question": "Не работает настройка outlook, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Не работает настройка outlook, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает настройка outlook, что делать?",
+          "Context 1 for question: Не работает настройка outlook, что делать?",
+          "Context 2 for question: Не работает настройка outlook, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.404348",
+        "evaluation_time_seconds": 2.1e-05
+      },
+      {
+        "question_id": "test_2325",
+        "question": "Не работает правила сортировки, что делать?",
+        "answer": "Ответ на вопрос с top_k=3: Не работает правила сортировки, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает правила сортировки, что делать?",
+          "Context 1 for question: Не работает правила сортировки, что делать?",
+          "Context 2 for question: Не работает правила сортировки, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 3,
+        "timestamp": "2026-05-12T18:14:49.404395",
+        "evaluation_time_seconds": 2.1e-05
+      }
+    ],
+    "5": [
+      {
+        "question_id": "test_2190",
+        "question": "Windows зависает, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Windows зависает, что делать?",
+        "contexts": [
+          "Context 0 for question: Windows зависает, что делать?",
+          "Context 1 for question: Windows зависает, что делать?",
+          "Context 2 for question: Windows зависает, что делать?",
+          "Context 3 for question: Windows зависает, что делать?",
+          "Context 4 for question: Windows зависает, что делать?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404462",
+        "evaluation_time_seconds": 2.2e-05
+      },
+      {
+        "question_id": "test_2608",
+        "question": "Как безопасно удалить файлы?",
+        "answer": "Ответ на вопрос с top_k=5: Как безопасно удалить файлы?",
+        "contexts": [
+          "Context 0 for question: Как безопасно удалить файлы?",
+          "Context 1 for question: Как безопасно удалить файлы?",
+          "Context 2 for question: Как безопасно удалить файлы?",
+          "Context 3 for question: Как безопасно удалить файлы?",
+          "Context 4 for question: Как безопасно удалить файлы?"
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404514",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2609",
+        "question": "Как заказать новое оборудование?",
+        "answer": "Ответ на вопрос с top_k=5: Как заказать новое оборудование?",
+        "contexts": [
+          "Context 0 for question: Как заказать новое оборудование?",
+          "Context 1 for question: Как заказать новое оборудование?",
+          "Context 2 for question: Как заказать новое оборудование?",
+          "Context 3 for question: Как заказать новое оборудование?",
+          "Context 4 for question: Как заказать новое оборудование?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.041,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404575",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2610",
+        "question": "Как создать общую папку для отдела?",
+        "answer": "Ответ на вопрос с top_k=5: Как создать общую папку для отдела?",
+        "contexts": [
+          "Context 0 for question: Как создать общую папку для отдела?",
+          "Context 1 for question: Как создать общую папку для отдела?",
+          "Context 2 for question: Как создать общую папку для отдела?",
+          "Context 3 for question: Как создать общую папку для отдела?",
+          "Context 4 for question: Как создать общую папку для отдела?"
+        ],
+        "faithfulness": 0.245,
+        "answer_relevance": 0.057,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404635",
+        "evaluation_time_seconds": 3.5e-05
+      },
+      {
+        "question_id": "test_2611",
+        "question": "Не открывается PDF-файл.",
+        "answer": "Ответ на вопрос с top_k=5: Не открывается PDF-файл.",
+        "contexts": [
+          "Context 0 for question: Не открывается PDF-файл.",
+          "Context 1 for question: Не открывается PDF-файл.",
+          "Context 2 for question: Не открывается PDF-файл.",
+          "Context 3 for question: Не открывается PDF-файл.",
+          "Context 4 for question: Не открывается PDF-файл."
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404701",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2612",
+        "question": "Не работает копирование/вставка.",
+        "answer": "Ответ на вопрос с top_k=5: Не работает копирование/вставка.",
+        "contexts": [
+          "Context 0 for question: Не работает копирование/вставка.",
+          "Context 1 for question: Не работает копирование/вставка.",
+          "Context 2 for question: Не работает копирование/вставка.",
+          "Context 3 for question: Не работает копирование/вставка.",
+          "Context 4 for question: Не работает копирование/вставка."
+        ],
+        "faithfulness": 0.231,
+        "answer_relevance": 0.039,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404762",
+        "evaluation_time_seconds": 2.9e-05
+      },
+      {
+        "question_id": "test_2613",
+        "question": "Как очистить историю браузера?",
+        "answer": "Ответ на вопрос с top_k=5: Как очистить историю браузера?",
+        "contexts": [
+          "Context 0 for question: Как очистить историю браузера?",
+          "Context 1 for question: Как очистить историю браузера?",
+          "Context 2 for question: Как очистить историю браузера?",
+          "Context 3 for question: Как очистить историю браузера?",
+          "Context 4 for question: Как очистить историю браузера?"
+        ],
+        "faithfulness": 0.245,
+        "answer_relevance": 0.057,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404820",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2614",
+        "question": "Не печатается PDF-файл.",
+        "answer": "Ответ на вопрос с top_k=5: Не печатается PDF-файл.",
+        "contexts": [
+          "Context 0 for question: Не печатается PDF-файл.",
+          "Context 1 for question: Не печатается PDF-файл.",
+          "Context 2 for question: Не печатается PDF-файл.",
+          "Context 3 for question: Не печатается PDF-файл.",
+          "Context 4 for question: Не печатается PDF-файл."
+        ],
+        "faithfulness": 0.232,
+        "answer_relevance": 0.04,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404882",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2615",
+        "question": "Экран стал черным после обновления.",
+        "answer": "Ответ на вопрос с top_k=5: Экран стал черным после обновления.",
+        "contexts": [
+          "Context 0 for question: Экран стал черным после обновления.",
+          "Context 1 for question: Экран стал черным после обновления.",
+          "Context 2 for question: Экран стал черным после обновления.",
+          "Context 3 for question: Экран стал черным после обновления.",
+          "Context 4 for question: Экран стал черным после обновления."
+        ],
+        "faithfulness": 0.23,
+        "answer_relevance": 0.038,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.404946",
+        "evaluation_time_seconds": 3.3e-05
+      },
+      {
+        "question_id": "test_2616",
+        "question": "CRM работает медленно.",
+        "answer": "Ответ на вопрос с top_k=5: CRM работает медленно.",
+        "contexts": [
+          "Context 0 for question: CRM работает медленно.",
+          "Context 1 for question: CRM работает медленно.",
+          "Context 2 for question: CRM работает медленно.",
+          "Context 3 for question: CRM работает медленно.",
+          "Context 4 for question: CRM работает медленно."
+        ],
+        "faithfulness": 0.226,
+        "answer_relevance": 0.032,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405012",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2617",
+        "question": "Как экспортировать данные из CRM?",
+        "answer": "Ответ на вопрос с top_k=5: Как экспортировать данные из CRM?",
+        "contexts": [
+          "Context 0 for question: Как экспортировать данные из CRM?",
+          "Context 1 for question: Как экспортировать данные из CRM?",
+          "Context 2 for question: Как экспортировать данные из CRM?",
+          "Context 3 for question: Как экспортировать данные из CRM?",
+          "Context 4 for question: Как экспортировать данные из CRM?"
+        ],
+        "faithfulness": 0.247,
+        "answer_relevance": 0.059,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405072",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2618",
+        "question": "Забыл пароль от CRM.",
+        "answer": "Ответ на вопрос с top_k=5: Забыл пароль от CRM.",
+        "contexts": [
+          "Context 0 for question: Забыл пароль от CRM.",
+          "Context 1 for question: Забыл пароль от CRM.",
+          "Context 2 for question: Забыл пароль от CRM.",
+          "Context 3 for question: Забыл пароль от CRM.",
+          "Context 4 for question: Забыл пароль от CRM."
+        ],
+        "faithfulness": 0.25,
+        "answer_relevance": 0.062,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405130",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2619",
+        "question": "Как создать правило сортировки писем?",
+        "answer": "Ответ на вопрос с top_k=5: Как создать правило сортировки писем?",
+        "contexts": [
+          "Context 0 for question: Как создать правило сортировки писем?",
+          "Context 1 for question: Как создать правило сортировки писем?",
+          "Context 2 for question: Как создать правило сортировки писем?",
+          "Context 3 for question: Как создать правило сортировки писем?",
+          "Context 4 for question: Как создать правило сортировки писем?"
+        ],
+        "faithfulness": 0.22,
+        "answer_relevance": 0.025,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405190",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2620",
+        "question": "Как подключить корпоративную почту на телефон?",
+        "answer": "Ответ на вопрос с top_k=5: Как подключить корпоративную почту на телефон?",
+        "contexts": [
+          "Context 0 for question: Как подключить корпоративную почту на телефон?",
+          "Context 1 for question: Как подключить корпоративную почту на телефон?",
+          "Context 2 for question: Как подключить корпоративную почту на телефон?",
+          "Context 3 for question: Как подключить корпоративную почту на телефон?",
+          "Context 4 for question: Как подключить корпоративную почту на телефон?"
+        ],
+        "faithfulness": 0.241,
+        "answer_relevance": 0.052,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405246",
+        "evaluation_time_seconds": 3.8e-05
+      },
+      {
+        "question_id": "test_2621",
+        "question": "Потерял корпоративный телефон.",
+        "answer": "Ответ на вопрос с top_k=5: Потерял корпоративный телефон.",
+        "contexts": [
+          "Context 0 for question: Потерял корпоративный телефон.",
+          "Context 1 for question: Потерял корпоративный телефон.",
+          "Context 2 for question: Потерял корпоративный телефон.",
+          "Context 3 for question: Потерял корпоративный телефон.",
+          "Context 4 for question: Потерял корпоративный телефон."
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405313",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2210",
+        "question": "Как защитить телефон от взлома?",
+        "answer": "Ответ на вопрос с top_k=5: Как защитить телефон от взлома?",
+        "contexts": [
+          "Context 0 for question: Как защитить телефон от взлома?",
+          "Context 1 for question: Как защитить телефон от взлома?",
+          "Context 2 for question: Как защитить телефон от взлома?",
+          "Context 3 for question: Как защитить телефон от взлома?",
+          "Context 4 for question: Как защитить телефон от взлома?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405373",
+        "evaluation_time_seconds": 2.3e-05
+      },
+      {
+        "question_id": "test_2622",
+        "question": "Телефон не синхронизирует контакты.",
+        "answer": "Ответ на вопрос с top_k=5: Телефон не синхронизирует контакты.",
+        "contexts": [
+          "Context 0 for question: Телефон не синхронизирует контакты.",
+          "Context 1 for question: Телефон не синхронизирует контакты.",
+          "Context 2 for question: Телефон не синхронизирует контакты.",
+          "Context 3 for question: Телефон не синхронизирует контакты.",
+          "Context 4 for question: Телефон не синхронизирует контакты."
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405425",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2623",
+        "question": "Не видны другие компьютеры в сети.",
+        "answer": "Ответ на вопрос с top_k=5: Не видны другие компьютеры в сети.",
+        "contexts": [
+          "Context 0 for question: Не видны другие компьютеры в сети.",
+          "Context 1 for question: Не видны другие компьютеры в сети.",
+          "Context 2 for question: Не видны другие компьютеры в сети.",
+          "Context 3 for question: Не видны другие компьютеры в сети.",
+          "Context 4 for question: Не видны другие компьютеры в сети."
+        ],
+        "faithfulness": 0.226,
+        "answer_relevance": 0.033,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405483",
+        "evaluation_time_seconds": 3.3e-05
+      },
+      {
+        "question_id": "test_2220",
+        "question": "Как сообщить о проблеме с безопасностью?",
+        "answer": "Ответ на вопрос с top_k=5: Как сообщить о проблеме с безопасностью?",
+        "contexts": [
+          "Context 0 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 1 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 2 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 3 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 4 for question: Как сообщить о проблеме с безопасностью?"
+        ],
+        "faithfulness": 0.253,
+        "answer_relevance": 0.067,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405545",
+        "evaluation_time_seconds": 2.3e-05
+      },
+      {
+        "question_id": "test_2624",
+        "question": "Медленный интернет.",
+        "answer": "Ответ на вопрос с top_k=5: Медленный интернет.",
+        "contexts": [
+          "Context 0 for question: Медленный интернет.",
+          "Context 1 for question: Медленный интернет.",
+          "Context 2 for question: Медленный интернет.",
+          "Context 3 for question: Медленный интернет.",
+          "Context 4 for question: Медленный интернет."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.333,
+        "context_recall": 0.4,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405598",
+        "evaluation_time_seconds": 2.9e-05
+      },
+      {
+        "question_id": "test_2625",
+        "question": "Как настроить общий доступ к папке в сети?",
+        "answer": "Ответ на вопрос с top_k=5: Как настроить общий доступ к папке в сети?",
+        "contexts": [
+          "Context 0 for question: Как настроить общий доступ к папке в сети?",
+          "Context 1 for question: Как настроить общий доступ к папке в сети?",
+          "Context 2 for question: Как настроить общий доступ к папке в сети?",
+          "Context 3 for question: Как настроить общий доступ к папке в сети?",
+          "Context 4 for question: Как настроить общий доступ к папке в сети?"
+        ],
+        "faithfulness": 0.273,
+        "answer_relevance": 0.091,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405656",
+        "evaluation_time_seconds": 3.5e-05
+      },
+      {
+        "question_id": "test_2241",
+        "question": "Не открывается сайт, ошибка 404.",
+        "answer": "Ответ на вопрос с top_k=5: Не открывается сайт, ошибка 404.",
+        "contexts": [
+          "Context 0 for question: Не открывается сайт, ошибка 404.",
+          "Context 1 for question: Не открывается сайт, ошибка 404.",
+          "Context 2 for question: Не открывается сайт, ошибка 404.",
+          "Context 3 for question: Не открывается сайт, ошибка 404.",
+          "Context 4 for question: Не открывается сайт, ошибка 404."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405720",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2626",
+        "question": "Какие часы работы IT-поддержки?",
+        "answer": "Ответ на вопрос с top_k=5: Какие часы работы IT-поддержки?",
+        "contexts": [
+          "Context 0 for question: Какие часы работы IT-поддержки?",
+          "Context 1 for question: Какие часы работы IT-поддержки?",
+          "Context 2 for question: Какие часы работы IT-поддержки?",
+          "Context 3 for question: Какие часы работы IT-поддержки?",
+          "Context 4 for question: Какие часы работы IT-поддержки?"
+        ],
+        "faithfulness": 0.225,
+        "answer_relevance": 0.031,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405773",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2627",
+        "question": "Можно ли хранить рабочие файлы в личном облаке?",
+        "answer": "Ответ на вопрос с top_k=5: Можно ли хранить рабочие файлы в личном облаке?",
+        "contexts": [
+          "Context 0 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 1 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 2 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 3 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 4 for question: Можно ли хранить рабочие файлы в личном облаке?"
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405837",
+        "evaluation_time_seconds": 3.4e-05
+      },
+      {
+        "question_id": "test_2300",
+        "question": "Как решить проблему с замена картриджа?",
+        "answer": "Ответ на вопрос с top_k=5: Как решить проблему с замена картриджа?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с замена картриджа?",
+          "Context 1 for question: Как решить проблему с замена картриджа?",
+          "Context 2 for question: Как решить проблему с замена картриджа?",
+          "Context 3 for question: Как решить проблему с замена картриджа?",
+          "Context 4 for question: Как решить проблему с замена картриджа?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405903",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2302",
+        "question": "Как решить проблему с настройка сканирования?",
+        "answer": "Ответ на вопрос с top_k=5: Как решить проблему с настройка сканирования?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с настройка сканирования?",
+          "Context 1 for question: Как решить проблему с настройка сканирования?",
+          "Context 2 for question: Как решить проблему с настройка сканирования?",
+          "Context 3 for question: Как решить проблему с настройка сканирования?",
+          "Context 4 for question: Как решить проблему с настройка сканирования?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.405970",
+        "evaluation_time_seconds": 2.5e-05
+      },
+      {
+        "question_id": "test_2628",
+        "question": "Какие устройства разрешены для работы?",
+        "answer": "Ответ на вопрос с top_k=5: Какие устройства разрешены для работы?",
+        "contexts": [
+          "Context 0 for question: Какие устройства разрешены для работы?",
+          "Context 1 for question: Какие устройства разрешены для работы?",
+          "Context 2 for question: Какие устройства разрешены для работы?",
+          "Context 3 for question: Какие устройства разрешены для работы?",
+          "Context 4 for question: Какие устройства разрешены для работы?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406020",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2629",
+        "question": "Печать идет медленно.",
+        "answer": "Ответ на вопрос с top_k=5: Печать идет медленно.",
+        "contexts": [
+          "Context 0 for question: Печать идет медленно.",
+          "Context 1 for question: Печать идет медленно.",
+          "Context 2 for question: Печать идет медленно.",
+          "Context 3 for question: Печать идет медленно.",
+          "Context 4 for question: Печать идет медленно."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406078",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2304",
+        "question": "Как решить проблему с сетевая печать?",
+        "answer": "Ответ на вопрос с top_k=5: Как решить проблему с сетевая печать?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с сетевая печать?",
+          "Context 1 for question: Как решить проблему с сетевая печать?",
+          "Context 2 for question: Как решить проблему с сетевая печать?",
+          "Context 3 for question: Как решить проблему с сетевая печать?",
+          "Context 4 for question: Как решить проблему с сетевая печать?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406137",
+        "evaluation_time_seconds": 2.5e-05
+      },
+      {
+        "question_id": "test_2630",
+        "question": "Ошибка 'Driver unavailable' при печати.",
+        "answer": "Ответ на вопрос с top_k=5: Ошибка 'Driver unavailable' при печати.",
+        "contexts": [
+          "Context 0 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 1 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 2 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 3 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 4 for question: Ошибка 'Driver unavailable' при печати."
+        ],
+        "faithfulness": 0.243,
+        "answer_relevance": 0.054,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406191",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2631",
+        "question": "Почему нужно менять пароль раз в 90 дней?",
+        "answer": "Ответ на вопрос с top_k=5: Почему нужно менять пароль раз в 90 дней?",
+        "contexts": [
+          "Context 0 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 1 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 2 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 3 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 4 for question: Почему нужно менять пароль раз в 90 дней?"
+        ],
+        "faithfulness": 0.215,
+        "answer_relevance": 0.019,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406255",
+        "evaluation_time_seconds": 3.7e-05
+      },
+      {
+        "question_id": "test_2632",
+        "question": "Получил подозрительное письмо, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Получил подозрительное письмо, что делать?",
+        "contexts": [
+          "Context 0 for question: Получил подозрительное письмо, что делать?",
+          "Context 1 for question: Получил подозрительное письмо, что делать?",
+          "Context 2 for question: Получил подозрительное письмо, что делать?",
+          "Context 3 for question: Получил подозрительное письмо, что делать?",
+          "Context 4 for question: Получил подозрительное письмо, что делать?"
+        ],
+        "faithfulness": 0.23,
+        "answer_relevance": 0.037,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406322",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2305",
+        "question": "Не работает сетевая печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Не работает сетевая печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает сетевая печать, что делать?",
+          "Context 1 for question: Не работает сетевая печать, что делать?",
+          "Context 2 for question: Не работает сетевая печать, что делать?",
+          "Context 3 for question: Не работает сетевая печать, что делать?",
+          "Context 4 for question: Не работает сетевая печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406383",
+        "evaluation_time_seconds": 2.5e-05
+      },
+      {
+        "question_id": "test_2596",
+        "question": "Сколько места нужно для Windows?",
+        "answer": "Ответ на вопрос с top_k=5: Сколько места нужно для Windows?",
+        "contexts": [
+          "Context 0 for question: Сколько места нужно для Windows?",
+          "Context 1 for question: Сколько места нужно для Windows?",
+          "Context 2 for question: Сколько места нужно для Windows?",
+          "Context 3 for question: Сколько места нужно для Windows?",
+          "Context 4 for question: Сколько места нужно для Windows?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406434",
+        "evaluation_time_seconds": 2.4e-05
+      },
+      {
+        "question_id": "test_2633",
+        "question": "Как проверить компьютер на вирусы?",
+        "answer": "Ответ на вопрос с top_k=5: Как проверить компьютер на вирусы?",
+        "contexts": [
+          "Context 0 for question: Как проверить компьютер на вирусы?",
+          "Context 1 for question: Как проверить компьютер на вирусы?",
+          "Context 2 for question: Как проверить компьютер на вирусы?",
+          "Context 3 for question: Как проверить компьютер на вирусы?",
+          "Context 4 for question: Как проверить компьютер на вирусы?"
+        ],
+        "faithfulness": 0.221,
+        "answer_relevance": 0.026,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406487",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2634",
+        "question": "Ошибка 'Missing DLL' при запуске.",
+        "answer": "Ответ на вопрос с top_k=5: Ошибка 'Missing DLL' при запуске.",
+        "contexts": [
+          "Context 0 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 1 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 2 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 3 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 4 for question: Ошибка 'Missing DLL' при запуске."
+        ],
+        "faithfulness": 0.218,
+        "answer_relevance": 0.022,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406545",
+        "evaluation_time_seconds": 3.1e-05
+      },
+      {
+        "question_id": "test_2307",
+        "question": "Не работает двусторонняя печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Не работает двусторонняя печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает двусторонняя печать, что делать?",
+          "Context 1 for question: Не работает двусторонняя печать, что делать?",
+          "Context 2 for question: Не работает двусторонняя печать, что делать?",
+          "Context 3 for question: Не работает двусторонняя печать, что делать?",
+          "Context 4 for question: Не работает двусторонняя печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406601",
+        "evaluation_time_seconds": 2.6e-05
+      },
+      {
+        "question_id": "test_2635",
+        "question": "Программа работает очень медленно.",
+        "answer": "Ответ на вопрос с top_k=5: Программа работает очень медленно.",
+        "contexts": [
+          "Context 0 for question: Программа работает очень медленно.",
+          "Context 1 for question: Программа работает очень медленно.",
+          "Context 2 for question: Программа работает очень медленно.",
+          "Context 3 for question: Программа работает очень медленно.",
+          "Context 4 for question: Программа работает очень медленно."
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406659",
+        "evaluation_time_seconds": 3.5e-05
+      },
+      {
+        "question_id": "test_2636",
+        "question": "Программа не сохраняет файлы.",
+        "answer": "Ответ на вопрос с top_k=5: Программа не сохраняет файлы.",
+        "contexts": [
+          "Context 0 for question: Программа не сохраняет файлы.",
+          "Context 1 for question: Программа не сохраняет файлы.",
+          "Context 2 for question: Программа не сохраняет файлы.",
+          "Context 3 for question: Программа не сохраняет файлы.",
+          "Context 4 for question: Программа не сохраняет файлы."
+        ],
+        "faithfulness": 0.222,
+        "answer_relevance": 0.028,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406724",
+        "evaluation_time_seconds": 2.6e-05
+      },
+      {
+        "question_id": "test_2637",
+        "question": "Компьютер медленно загружается.",
+        "answer": "Ответ на вопрос с top_k=5: Компьютер медленно загружается.",
+        "contexts": [
+          "Context 0 for question: Компьютер медленно загружается.",
+          "Context 1 for question: Компьютер медленно загружается.",
+          "Context 2 for question: Компьютер медленно загружается.",
+          "Context 3 for question: Компьютер медленно загружается.",
+          "Context 4 for question: Компьютер медленно загружается."
+        ],
+        "faithfulness": 0.225,
+        "answer_relevance": 0.031,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406779",
+        "evaluation_time_seconds": 3.2e-05
+      },
+      {
+        "question_id": "test_2638",
+        "question": "Не работает звук на компьютере.",
+        "answer": "Ответ на вопрос с top_k=5: Не работает звук на компьютере.",
+        "contexts": [
+          "Context 0 for question: Не работает звук на компьютере.",
+          "Context 1 for question: Не работает звук на компьютере.",
+          "Context 2 for question: Не работает звук на компьютере.",
+          "Context 3 for question: Не работает звук на компьютере.",
+          "Context 4 for question: Не работает звук на компьютере."
+        ],
+        "faithfulness": 0.215,
+        "answer_relevance": 0.019,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406840",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2309",
+        "question": "Не работает цветная печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Не работает цветная печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает цветная печать, что делать?",
+          "Context 1 for question: Не работает цветная печать, что делать?",
+          "Context 2 for question: Не работает цветная печать, что делать?",
+          "Context 3 for question: Не работает цветная печать, что делать?",
+          "Context 4 for question: Не работает цветная печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406908",
+        "evaluation_time_seconds": 3.4e-05
+      },
+      {
+        "question_id": "test_2639",
+        "question": "Потерялись файлы с рабочего стола.",
+        "answer": "Ответ на вопрос с top_k=5: Потерялись файлы с рабочего стола.",
+        "contexts": [
+          "Context 0 for question: Потерялись файлы с рабочего стола.",
+          "Context 1 for question: Потерялись файлы с рабочего стола.",
+          "Context 2 for question: Потерялись файлы с рабочего стола.",
+          "Context 3 for question: Потерялись файлы с рабочего стола.",
+          "Context 4 for question: Потерялись файлы с рабочего стола."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.406973",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2310",
+        "question": "Как решить проблему с настройка vpn?",
+        "answer": "Ответ на вопрос с top_k=5: Как решить проблему с настройка vpn?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с настройка vpn?",
+          "Context 1 for question: Как решить проблему с настройка vpn?",
+          "Context 2 for question: Как решить проблему с настройка vpn?",
+          "Context 3 for question: Как решить проблему с настройка vpn?",
+          "Context 4 for question: Как решить проблему с настройка vpn?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.407032",
+        "evaluation_time_seconds": 2.5e-05
+      },
+      {
+        "question_id": "test_2313",
+        "question": "Не работает подключение к wi-fi, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Не работает подключение к wi-fi, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 1 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 2 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 3 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 4 for question: Не работает подключение к wi-fi, что делать?"
+        ],
+        "faithfulness": 0.296,
+        "answer_relevance": 0.12,
+        "context_precision": 0.636,
+        "context_recall": 0.673,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.407088",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2315",
+        "question": "Не работает общий доступ к файлам, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Не работает общий доступ к файлам, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 1 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 2 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 3 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 4 for question: Не работает общий доступ к файлам, что делать?"
+        ],
+        "faithfulness": 0.323,
+        "answer_relevance": 0.154,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.407145",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2319",
+        "question": "Не работает dns настройки, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Не работает dns настройки, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает dns настройки, что делать?",
+          "Context 1 for question: Не работает dns настройки, что делать?",
+          "Context 2 for question: Не работает dns настройки, что делать?",
+          "Context 3 for question: Не работает dns настройки, что делать?",
+          "Context 4 for question: Не работает dns настройки, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.407205",
+        "evaluation_time_seconds": 2.5e-05
+      },
+      {
+        "question_id": "test_2320",
+        "question": "Как решить проблему с статический ip?",
+        "answer": "Ответ на вопрос с top_k=5: Как решить проблему с статический ip?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с статический ip?",
+          "Context 1 for question: Как решить проблему с статический ip?",
+          "Context 2 for question: Как решить проблему с статический ip?",
+          "Context 3 for question: Как решить проблему с статический ip?",
+          "Context 4 for question: Как решить проблему с статический ip?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.407256",
+        "evaluation_time_seconds": 2.8e-05
+      },
+      {
+        "question_id": "test_2323",
+        "question": "Не работает настройка outlook, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Не работает настройка outlook, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает настройка outlook, что делать?",
+          "Context 1 for question: Не работает настройка outlook, что делать?",
+          "Context 2 for question: Не работает настройка outlook, что делать?",
+          "Context 3 for question: Не работает настройка outlook, что делать?",
+          "Context 4 for question: Не работает настройка outlook, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.407313",
+        "evaluation_time_seconds": 2.7e-05
+      },
+      {
+        "question_id": "test_2325",
+        "question": "Не работает правила сортировки, что делать?",
+        "answer": "Ответ на вопрос с top_k=5: Не работает правила сортировки, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает правила сортировки, что делать?",
+          "Context 1 for question: Не работает правила сортировки, что делать?",
+          "Context 2 for question: Не работает правила сортировки, что делать?",
+          "Context 3 for question: Не работает правила сортировки, что делать?",
+          "Context 4 for question: Не работает правила сортировки, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 5,
+        "timestamp": "2026-05-12T18:14:49.407369",
+        "evaluation_time_seconds": 2.5e-05
+      }
+    ],
+    "10": [
+      {
+        "question_id": "test_2190",
+        "question": "Windows зависает, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Windows зависает, что делать?",
+        "contexts": [
+          "Context 0 for question: Windows зависает, что делать?",
+          "Context 1 for question: Windows зависает, что делать?",
+          "Context 2 for question: Windows зависает, что делать?",
+          "Context 3 for question: Windows зависает, что делать?",
+          "Context 4 for question: Windows зависает, что делать?",
+          "Context 5 for question: Windows зависает, что делать?",
+          "Context 6 for question: Windows зависает, что делать?",
+          "Context 7 for question: Windows зависает, что делать?",
+          "Context 8 for question: Windows зависает, что делать?",
+          "Context 9 for question: Windows зависает, что делать?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.407435",
+        "evaluation_time_seconds": 3e-05
+      },
+      {
+        "question_id": "test_2608",
+        "question": "Как безопасно удалить файлы?",
+        "answer": "Ответ на вопрос с top_k=10: Как безопасно удалить файлы?",
+        "contexts": [
+          "Context 0 for question: Как безопасно удалить файлы?",
+          "Context 1 for question: Как безопасно удалить файлы?",
+          "Context 2 for question: Как безопасно удалить файлы?",
+          "Context 3 for question: Как безопасно удалить файлы?",
+          "Context 4 for question: Как безопасно удалить файлы?",
+          "Context 5 for question: Как безопасно удалить файлы?",
+          "Context 6 for question: Как безопасно удалить файлы?",
+          "Context 7 for question: Как безопасно удалить файлы?",
+          "Context 8 for question: Как безопасно удалить файлы?",
+          "Context 9 for question: Как безопасно удалить файлы?"
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.407570",
+        "evaluation_time_seconds": 4.6e-05
+      },
+      {
+        "question_id": "test_2609",
+        "question": "Как заказать новое оборудование?",
+        "answer": "Ответ на вопрос с top_k=10: Как заказать новое оборудование?",
+        "contexts": [
+          "Context 0 for question: Как заказать новое оборудование?",
+          "Context 1 for question: Как заказать новое оборудование?",
+          "Context 2 for question: Как заказать новое оборудование?",
+          "Context 3 for question: Как заказать новое оборудование?",
+          "Context 4 for question: Как заказать новое оборудование?",
+          "Context 5 for question: Как заказать новое оборудование?",
+          "Context 6 for question: Как заказать новое оборудование?",
+          "Context 7 for question: Как заказать новое оборудование?",
+          "Context 8 for question: Как заказать новое оборудование?",
+          "Context 9 for question: Как заказать новое оборудование?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.041,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.407649",
+        "evaluation_time_seconds": 3.9e-05
+      },
+      {
+        "question_id": "test_2610",
+        "question": "Как создать общую папку для отдела?",
+        "answer": "Ответ на вопрос с top_k=10: Как создать общую папку для отдела?",
+        "contexts": [
+          "Context 0 for question: Как создать общую папку для отдела?",
+          "Context 1 for question: Как создать общую папку для отдела?",
+          "Context 2 for question: Как создать общую папку для отдела?",
+          "Context 3 for question: Как создать общую папку для отдела?",
+          "Context 4 for question: Как создать общую папку для отдела?",
+          "Context 5 for question: Как создать общую папку для отдела?",
+          "Context 6 for question: Как создать общую папку для отдела?",
+          "Context 7 for question: Как создать общую папку для отдела?",
+          "Context 8 for question: Как создать общую папку для отдела?",
+          "Context 9 for question: Как создать общую папку для отдела?"
+        ],
+        "faithfulness": 0.245,
+        "answer_relevance": 0.057,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.407720",
+        "evaluation_time_seconds": 4.4e-05
+      },
+      {
+        "question_id": "test_2611",
+        "question": "Не открывается PDF-файл.",
+        "answer": "Ответ на вопрос с top_k=10: Не открывается PDF-файл.",
+        "contexts": [
+          "Context 0 for question: Не открывается PDF-файл.",
+          "Context 1 for question: Не открывается PDF-файл.",
+          "Context 2 for question: Не открывается PDF-файл.",
+          "Context 3 for question: Не открывается PDF-файл.",
+          "Context 4 for question: Не открывается PDF-файл.",
+          "Context 5 for question: Не открывается PDF-файл.",
+          "Context 6 for question: Не открывается PDF-файл.",
+          "Context 7 for question: Не открывается PDF-файл.",
+          "Context 8 for question: Не открывается PDF-файл.",
+          "Context 9 for question: Не открывается PDF-файл."
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.407794",
+        "evaluation_time_seconds": 4.3e-05
+      },
+      {
+        "question_id": "test_2612",
+        "question": "Не работает копирование/вставка.",
+        "answer": "Ответ на вопрос с top_k=10: Не работает копирование/вставка.",
+        "contexts": [
+          "Context 0 for question: Не работает копирование/вставка.",
+          "Context 1 for question: Не работает копирование/вставка.",
+          "Context 2 for question: Не работает копирование/вставка.",
+          "Context 3 for question: Не работает копирование/вставка.",
+          "Context 4 for question: Не работает копирование/вставка.",
+          "Context 5 for question: Не работает копирование/вставка.",
+          "Context 6 for question: Не работает копирование/вставка.",
+          "Context 7 for question: Не работает копирование/вставка.",
+          "Context 8 for question: Не работает копирование/вставка.",
+          "Context 9 for question: Не работает копирование/вставка."
+        ],
+        "faithfulness": 0.231,
+        "answer_relevance": 0.039,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.407864",
+        "evaluation_time_seconds": 3.7e-05
+      },
+      {
+        "question_id": "test_2613",
+        "question": "Как очистить историю браузера?",
+        "answer": "Ответ на вопрос с top_k=10: Как очистить историю браузера?",
+        "contexts": [
+          "Context 0 for question: Как очистить историю браузера?",
+          "Context 1 for question: Как очистить историю браузера?",
+          "Context 2 for question: Как очистить историю браузера?",
+          "Context 3 for question: Как очистить историю браузера?",
+          "Context 4 for question: Как очистить историю браузера?",
+          "Context 5 for question: Как очистить историю браузера?",
+          "Context 6 for question: Как очистить историю браузера?",
+          "Context 7 for question: Как очистить историю браузера?",
+          "Context 8 for question: Как очистить историю браузера?",
+          "Context 9 for question: Как очистить историю браузера?"
+        ],
+        "faithfulness": 0.245,
+        "answer_relevance": 0.057,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.407938",
+        "evaluation_time_seconds": 4.2e-05
+      },
+      {
+        "question_id": "test_2614",
+        "question": "Не печатается PDF-файл.",
+        "answer": "Ответ на вопрос с top_k=10: Не печатается PDF-файл.",
+        "contexts": [
+          "Context 0 for question: Не печатается PDF-файл.",
+          "Context 1 for question: Не печатается PDF-файл.",
+          "Context 2 for question: Не печатается PDF-файл.",
+          "Context 3 for question: Не печатается PDF-файл.",
+          "Context 4 for question: Не печатается PDF-файл.",
+          "Context 5 for question: Не печатается PDF-файл.",
+          "Context 6 for question: Не печатается PDF-файл.",
+          "Context 7 for question: Не печатается PDF-файл.",
+          "Context 8 for question: Не печатается PDF-файл.",
+          "Context 9 for question: Не печатается PDF-файл."
+        ],
+        "faithfulness": 0.232,
+        "answer_relevance": 0.04,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408012",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2615",
+        "question": "Экран стал черным после обновления.",
+        "answer": "Ответ на вопрос с top_k=10: Экран стал черным после обновления.",
+        "contexts": [
+          "Context 0 for question: Экран стал черным после обновления.",
+          "Context 1 for question: Экран стал черным после обновления.",
+          "Context 2 for question: Экран стал черным после обновления.",
+          "Context 3 for question: Экран стал черным после обновления.",
+          "Context 4 for question: Экран стал черным после обновления.",
+          "Context 5 for question: Экран стал черным после обновления.",
+          "Context 6 for question: Экран стал черным после обновления.",
+          "Context 7 for question: Экран стал черным после обновления.",
+          "Context 8 for question: Экран стал черным после обновления.",
+          "Context 9 for question: Экран стал черным после обновления."
+        ],
+        "faithfulness": 0.23,
+        "answer_relevance": 0.038,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408079",
+        "evaluation_time_seconds": 4.6e-05
+      },
+      {
+        "question_id": "test_2616",
+        "question": "CRM работает медленно.",
+        "answer": "Ответ на вопрос с top_k=10: CRM работает медленно.",
+        "contexts": [
+          "Context 0 for question: CRM работает медленно.",
+          "Context 1 for question: CRM работает медленно.",
+          "Context 2 for question: CRM работает медленно.",
+          "Context 3 for question: CRM работает медленно.",
+          "Context 4 for question: CRM работает медленно.",
+          "Context 5 for question: CRM работает медленно.",
+          "Context 6 for question: CRM работает медленно.",
+          "Context 7 for question: CRM работает медленно.",
+          "Context 8 for question: CRM работает медленно.",
+          "Context 9 for question: CRM работает медленно."
+        ],
+        "faithfulness": 0.226,
+        "answer_relevance": 0.032,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408159",
+        "evaluation_time_seconds": 3.8e-05
+      },
+      {
+        "question_id": "test_2617",
+        "question": "Как экспортировать данные из CRM?",
+        "answer": "Ответ на вопрос с top_k=10: Как экспортировать данные из CRM?",
+        "contexts": [
+          "Context 0 for question: Как экспортировать данные из CRM?",
+          "Context 1 for question: Как экспортировать данные из CRM?",
+          "Context 2 for question: Как экспортировать данные из CRM?",
+          "Context 3 for question: Как экспортировать данные из CRM?",
+          "Context 4 for question: Как экспортировать данные из CRM?",
+          "Context 5 for question: Как экспортировать данные из CRM?",
+          "Context 6 for question: Как экспортировать данные из CRM?",
+          "Context 7 for question: Как экспортировать данные из CRM?",
+          "Context 8 for question: Как экспортировать данные из CRM?",
+          "Context 9 for question: Как экспортировать данные из CRM?"
+        ],
+        "faithfulness": 0.247,
+        "answer_relevance": 0.059,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408228",
+        "evaluation_time_seconds": 4.3e-05
+      },
+      {
+        "question_id": "test_2618",
+        "question": "Забыл пароль от CRM.",
+        "answer": "Ответ на вопрос с top_k=10: Забыл пароль от CRM.",
+        "contexts": [
+          "Context 0 for question: Забыл пароль от CRM.",
+          "Context 1 for question: Забыл пароль от CRM.",
+          "Context 2 for question: Забыл пароль от CRM.",
+          "Context 3 for question: Забыл пароль от CRM.",
+          "Context 4 for question: Забыл пароль от CRM.",
+          "Context 5 for question: Забыл пароль от CRM.",
+          "Context 6 for question: Забыл пароль от CRM.",
+          "Context 7 for question: Забыл пароль от CRM.",
+          "Context 8 for question: Забыл пароль от CRM.",
+          "Context 9 for question: Забыл пароль от CRM."
+        ],
+        "faithfulness": 0.25,
+        "answer_relevance": 0.062,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408296",
+        "evaluation_time_seconds": 3.7e-05
+      },
+      {
+        "question_id": "test_2619",
+        "question": "Как создать правило сортировки писем?",
+        "answer": "Ответ на вопрос с top_k=10: Как создать правило сортировки писем?",
+        "contexts": [
+          "Context 0 for question: Как создать правило сортировки писем?",
+          "Context 1 for question: Как создать правило сортировки писем?",
+          "Context 2 for question: Как создать правило сортировки писем?",
+          "Context 3 for question: Как создать правило сортировки писем?",
+          "Context 4 for question: Как создать правило сортировки писем?",
+          "Context 5 for question: Как создать правило сортировки писем?",
+          "Context 6 for question: Как создать правило сортировки писем?",
+          "Context 7 for question: Как создать правило сортировки писем?",
+          "Context 8 for question: Как создать правило сортировки писем?",
+          "Context 9 for question: Как создать правило сортировки писем?"
+        ],
+        "faithfulness": 0.22,
+        "answer_relevance": 0.025,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408361",
+        "evaluation_time_seconds": 3.9e-05
+      },
+      {
+        "question_id": "test_2620",
+        "question": "Как подключить корпоративную почту на телефон?",
+        "answer": "Ответ на вопрос с top_k=10: Как подключить корпоративную почту на телефон?",
+        "contexts": [
+          "Context 0 for question: Как подключить корпоративную почту на телефон?",
+          "Context 1 for question: Как подключить корпоративную почту на телефон?",
+          "Context 2 for question: Как подключить корпоративную почту на телефон?",
+          "Context 3 for question: Как подключить корпоративную почту на телефон?",
+          "Context 4 for question: Как подключить корпоративную почту на телефон?",
+          "Context 5 for question: Как подключить корпоративную почту на телефон?",
+          "Context 6 for question: Как подключить корпоративную почту на телефон?",
+          "Context 7 for question: Как подключить корпоративную почту на телефон?",
+          "Context 8 for question: Как подключить корпоративную почту на телефон?",
+          "Context 9 for question: Как подключить корпоративную почту на телефон?"
+        ],
+        "faithfulness": 0.241,
+        "answer_relevance": 0.052,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408430",
+        "evaluation_time_seconds": 4.5e-05
+      },
+      {
+        "question_id": "test_2621",
+        "question": "Потерял корпоративный телефон.",
+        "answer": "Ответ на вопрос с top_k=10: Потерял корпоративный телефон.",
+        "contexts": [
+          "Context 0 for question: Потерял корпоративный телефон.",
+          "Context 1 for question: Потерял корпоративный телефон.",
+          "Context 2 for question: Потерял корпоративный телефон.",
+          "Context 3 for question: Потерял корпоративный телефон.",
+          "Context 4 for question: Потерял корпоративный телефон.",
+          "Context 5 for question: Потерял корпоративный телефон.",
+          "Context 6 for question: Потерял корпоративный телефон.",
+          "Context 7 for question: Потерял корпоративный телефон.",
+          "Context 8 for question: Потерял корпоративный телефон.",
+          "Context 9 for question: Потерял корпоративный телефон."
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408503",
+        "evaluation_time_seconds": 3.9e-05
+      },
+      {
+        "question_id": "test_2210",
+        "question": "Как защитить телефон от взлома?",
+        "answer": "Ответ на вопрос с top_k=10: Как защитить телефон от взлома?",
+        "contexts": [
+          "Context 0 for question: Как защитить телефон от взлома?",
+          "Context 1 for question: Как защитить телефон от взлома?",
+          "Context 2 for question: Как защитить телефон от взлома?",
+          "Context 3 for question: Как защитить телефон от взлома?",
+          "Context 4 for question: Как защитить телефон от взлома?",
+          "Context 5 for question: Как защитить телефон от взлома?",
+          "Context 6 for question: Как защитить телефон от взлома?",
+          "Context 7 for question: Как защитить телефон от взлома?",
+          "Context 8 for question: Как защитить телефон от взлома?",
+          "Context 9 for question: Как защитить телефон от взлома?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408567",
+        "evaluation_time_seconds": 3.3e-05
+      },
+      {
+        "question_id": "test_2622",
+        "question": "Телефон не синхронизирует контакты.",
+        "answer": "Ответ на вопрос с top_k=10: Телефон не синхронизирует контакты.",
+        "contexts": [
+          "Context 0 for question: Телефон не синхронизирует контакты.",
+          "Context 1 for question: Телефон не синхронизирует контакты.",
+          "Context 2 for question: Телефон не синхронизирует контакты.",
+          "Context 3 for question: Телефон не синхронизирует контакты.",
+          "Context 4 for question: Телефон не синхронизирует контакты.",
+          "Context 5 for question: Телефон не синхронизирует контакты.",
+          "Context 6 for question: Телефон не синхронизирует контакты.",
+          "Context 7 for question: Телефон не синхронизирует контакты.",
+          "Context 8 for question: Телефон не синхронизирует контакты.",
+          "Context 9 for question: Телефон не синхронизирует контакты."
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408630",
+        "evaluation_time_seconds": 4.2e-05
+      },
+      {
+        "question_id": "test_2623",
+        "question": "Не видны другие компьютеры в сети.",
+        "answer": "Ответ на вопрос с top_k=10: Не видны другие компьютеры в сети.",
+        "contexts": [
+          "Context 0 for question: Не видны другие компьютеры в сети.",
+          "Context 1 for question: Не видны другие компьютеры в сети.",
+          "Context 2 for question: Не видны другие компьютеры в сети.",
+          "Context 3 for question: Не видны другие компьютеры в сети.",
+          "Context 4 for question: Не видны другие компьютеры в сети.",
+          "Context 5 for question: Не видны другие компьютеры в сети.",
+          "Context 6 for question: Не видны другие компьютеры в сети.",
+          "Context 7 for question: Не видны другие компьютеры в сети.",
+          "Context 8 for question: Не видны другие компьютеры в сети.",
+          "Context 9 for question: Не видны другие компьютеры в сети."
+        ],
+        "faithfulness": 0.226,
+        "answer_relevance": 0.033,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408703",
+        "evaluation_time_seconds": 4.3e-05
+      },
+      {
+        "question_id": "test_2220",
+        "question": "Как сообщить о проблеме с безопасностью?",
+        "answer": "Ответ на вопрос с top_k=10: Как сообщить о проблеме с безопасностью?",
+        "contexts": [
+          "Context 0 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 1 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 2 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 3 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 4 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 5 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 6 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 7 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 8 for question: Как сообщить о проблеме с безопасностью?",
+          "Context 9 for question: Как сообщить о проблеме с безопасностью?"
+        ],
+        "faithfulness": 0.253,
+        "answer_relevance": 0.067,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408777",
+        "evaluation_time_seconds": 3.4e-05
+      },
+      {
+        "question_id": "test_2624",
+        "question": "Медленный интернет.",
+        "answer": "Ответ на вопрос с top_k=10: Медленный интернет.",
+        "contexts": [
+          "Context 0 for question: Медленный интернет.",
+          "Context 1 for question: Медленный интернет.",
+          "Context 2 for question: Медленный интернет.",
+          "Context 3 for question: Медленный интернет.",
+          "Context 4 for question: Медленный интернет.",
+          "Context 5 for question: Медленный интернет.",
+          "Context 6 for question: Медленный интернет.",
+          "Context 7 for question: Медленный интернет.",
+          "Context 8 for question: Медленный интернет.",
+          "Context 9 for question: Медленный интернет."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.333,
+        "context_recall": 0.4,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408837",
+        "evaluation_time_seconds": 3.7e-05
+      },
+      {
+        "question_id": "test_2625",
+        "question": "Как настроить общий доступ к папке в сети?",
+        "answer": "Ответ на вопрос с top_k=10: Как настроить общий доступ к папке в сети?",
+        "contexts": [
+          "Context 0 for question: Как настроить общий доступ к папке в сети?",
+          "Context 1 for question: Как настроить общий доступ к папке в сети?",
+          "Context 2 for question: Как настроить общий доступ к папке в сети?",
+          "Context 3 for question: Как настроить общий доступ к папке в сети?",
+          "Context 4 for question: Как настроить общий доступ к папке в сети?",
+          "Context 5 for question: Как настроить общий доступ к папке в сети?",
+          "Context 6 for question: Как настроить общий доступ к папке в сети?",
+          "Context 7 for question: Как настроить общий доступ к папке в сети?",
+          "Context 8 for question: Как настроить общий доступ к папке в сети?",
+          "Context 9 for question: Как настроить общий доступ к папке в сети?"
+        ],
+        "faithfulness": 0.273,
+        "answer_relevance": 0.091,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408907",
+        "evaluation_time_seconds": 5.7e-05
+      },
+      {
+        "question_id": "test_2241",
+        "question": "Не открывается сайт, ошибка 404.",
+        "answer": "Ответ на вопрос с top_k=10: Не открывается сайт, ошибка 404.",
+        "contexts": [
+          "Context 0 for question: Не открывается сайт, ошибка 404.",
+          "Context 1 for question: Не открывается сайт, ошибка 404.",
+          "Context 2 for question: Не открывается сайт, ошибка 404.",
+          "Context 3 for question: Не открывается сайт, ошибка 404.",
+          "Context 4 for question: Не открывается сайт, ошибка 404.",
+          "Context 5 for question: Не открывается сайт, ошибка 404.",
+          "Context 6 for question: Не открывается сайт, ошибка 404.",
+          "Context 7 for question: Не открывается сайт, ошибка 404.",
+          "Context 8 for question: Не открывается сайт, ошибка 404.",
+          "Context 9 for question: Не открывается сайт, ошибка 404."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.408995",
+        "evaluation_time_seconds": 3.4e-05
+      },
+      {
+        "question_id": "test_2626",
+        "question": "Какие часы работы IT-поддержки?",
+        "answer": "Ответ на вопрос с top_k=10: Какие часы работы IT-поддержки?",
+        "contexts": [
+          "Context 0 for question: Какие часы работы IT-поддержки?",
+          "Context 1 for question: Какие часы работы IT-поддержки?",
+          "Context 2 for question: Какие часы работы IT-поддержки?",
+          "Context 3 for question: Какие часы работы IT-поддержки?",
+          "Context 4 for question: Какие часы работы IT-поддержки?",
+          "Context 5 for question: Какие часы работы IT-поддержки?",
+          "Context 6 for question: Какие часы работы IT-поддержки?",
+          "Context 7 for question: Какие часы работы IT-поддержки?",
+          "Context 8 for question: Какие часы работы IT-поддержки?",
+          "Context 9 for question: Какие часы работы IT-поддержки?"
+        ],
+        "faithfulness": 0.225,
+        "answer_relevance": 0.031,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409059",
+        "evaluation_time_seconds": 4e-05
+      },
+      {
+        "question_id": "test_2627",
+        "question": "Можно ли хранить рабочие файлы в личном облаке?",
+        "answer": "Ответ на вопрос с top_k=10: Можно ли хранить рабочие файлы в личном облаке?",
+        "contexts": [
+          "Context 0 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 1 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 2 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 3 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 4 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 5 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 6 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 7 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 8 for question: Можно ли хранить рабочие файлы в личном облаке?",
+          "Context 9 for question: Можно ли хранить рабочие файлы в личном облаке?"
+        ],
+        "faithfulness": 0.216,
+        "answer_relevance": 0.02,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409126",
+        "evaluation_time_seconds": 4.6e-05
+      },
+      {
+        "question_id": "test_2300",
+        "question": "Как решить проблему с замена картриджа?",
+        "answer": "Ответ на вопрос с top_k=10: Как решить проблему с замена картриджа?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с замена картриджа?",
+          "Context 1 for question: Как решить проблему с замена картриджа?",
+          "Context 2 for question: Как решить проблему с замена картриджа?",
+          "Context 3 for question: Как решить проблему с замена картриджа?",
+          "Context 4 for question: Как решить проблему с замена картриджа?",
+          "Context 5 for question: Как решить проблему с замена картриджа?",
+          "Context 6 for question: Как решить проблему с замена картриджа?",
+          "Context 7 for question: Как решить проблему с замена картриджа?",
+          "Context 8 for question: Как решить проблему с замена картриджа?",
+          "Context 9 for question: Как решить проблему с замена картриджа?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409202",
+        "evaluation_time_seconds": 3.7e-05
+      },
+      {
+        "question_id": "test_2302",
+        "question": "Как решить проблему с настройка сканирования?",
+        "answer": "Ответ на вопрос с top_k=10: Как решить проблему с настройка сканирования?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с настройка сканирования?",
+          "Context 1 for question: Как решить проблему с настройка сканирования?",
+          "Context 2 for question: Как решить проблему с настройка сканирования?",
+          "Context 3 for question: Как решить проблему с настройка сканирования?",
+          "Context 4 for question: Как решить проблему с настройка сканирования?",
+          "Context 5 for question: Как решить проблему с настройка сканирования?",
+          "Context 6 for question: Как решить проблему с настройка сканирования?",
+          "Context 7 for question: Как решить проблему с настройка сканирования?",
+          "Context 8 for question: Как решить проблему с настройка сканирования?",
+          "Context 9 for question: Как решить проблему с настройка сканирования?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409265",
+        "evaluation_time_seconds": 3.9e-05
+      },
+      {
+        "question_id": "test_2628",
+        "question": "Какие устройства разрешены для работы?",
+        "answer": "Ответ на вопрос с top_k=10: Какие устройства разрешены для работы?",
+        "contexts": [
+          "Context 0 for question: Какие устройства разрешены для работы?",
+          "Context 1 for question: Какие устройства разрешены для работы?",
+          "Context 2 for question: Какие устройства разрешены для работы?",
+          "Context 3 for question: Какие устройства разрешены для работы?",
+          "Context 4 for question: Какие устройства разрешены для работы?",
+          "Context 5 for question: Какие устройства разрешены для работы?",
+          "Context 6 for question: Какие устройства разрешены для работы?",
+          "Context 7 for question: Какие устройства разрешены для работы?",
+          "Context 8 for question: Какие устройства разрешены для работы?",
+          "Context 9 for question: Какие устройства разрешены для работы?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409338",
+        "evaluation_time_seconds": 4.2e-05
+      },
+      {
+        "question_id": "test_2629",
+        "question": "Печать идет медленно.",
+        "answer": "Ответ на вопрос с top_k=10: Печать идет медленно.",
+        "contexts": [
+          "Context 0 for question: Печать идет медленно.",
+          "Context 1 for question: Печать идет медленно.",
+          "Context 2 for question: Печать идет медленно.",
+          "Context 3 for question: Печать идет медленно.",
+          "Context 4 for question: Печать идет медленно.",
+          "Context 5 for question: Печать идет медленно.",
+          "Context 6 for question: Печать идет медленно.",
+          "Context 7 for question: Печать идет медленно.",
+          "Context 8 for question: Печать идет медленно.",
+          "Context 9 for question: Печать идет медленно."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409411",
+        "evaluation_time_seconds": 4.1e-05
+      },
+      {
+        "question_id": "test_2304",
+        "question": "Как решить проблему с сетевая печать?",
+        "answer": "Ответ на вопрос с top_k=10: Как решить проблему с сетевая печать?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с сетевая печать?",
+          "Context 1 for question: Как решить проблему с сетевая печать?",
+          "Context 2 for question: Как решить проблему с сетевая печать?",
+          "Context 3 for question: Как решить проблему с сетевая печать?",
+          "Context 4 for question: Как решить проблему с сетевая печать?",
+          "Context 5 for question: Как решить проблему с сетевая печать?",
+          "Context 6 for question: Как решить проблему с сетевая печать?",
+          "Context 7 for question: Как решить проблему с сетевая печать?",
+          "Context 8 for question: Как решить проблему с сетевая печать?",
+          "Context 9 for question: Как решить проблему с сетевая печать?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409482",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2630",
+        "question": "Ошибка 'Driver unavailable' при печати.",
+        "answer": "Ответ на вопрос с top_k=10: Ошибка 'Driver unavailable' при печати.",
+        "contexts": [
+          "Context 0 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 1 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 2 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 3 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 4 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 5 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 6 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 7 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 8 for question: Ошибка 'Driver unavailable' при печати.",
+          "Context 9 for question: Ошибка 'Driver unavailable' при печати."
+        ],
+        "faithfulness": 0.243,
+        "answer_relevance": 0.054,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409549",
+        "evaluation_time_seconds": 4.5e-05
+      },
+      {
+        "question_id": "test_2631",
+        "question": "Почему нужно менять пароль раз в 90 дней?",
+        "answer": "Ответ на вопрос с top_k=10: Почему нужно менять пароль раз в 90 дней?",
+        "contexts": [
+          "Context 0 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 1 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 2 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 3 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 4 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 5 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 6 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 7 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 8 for question: Почему нужно менять пароль раз в 90 дней?",
+          "Context 9 for question: Почему нужно менять пароль раз в 90 дней?"
+        ],
+        "faithfulness": 0.215,
+        "answer_relevance": 0.019,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409623",
+        "evaluation_time_seconds": 4.7e-05
+      },
+      {
+        "question_id": "test_2632",
+        "question": "Получил подозрительное письмо, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Получил подозрительное письмо, что делать?",
+        "contexts": [
+          "Context 0 for question: Получил подозрительное письмо, что делать?",
+          "Context 1 for question: Получил подозрительное письмо, что делать?",
+          "Context 2 for question: Получил подозрительное письмо, что делать?",
+          "Context 3 for question: Получил подозрительное письмо, что делать?",
+          "Context 4 for question: Получил подозрительное письмо, что делать?",
+          "Context 5 for question: Получил подозрительное письмо, что делать?",
+          "Context 6 for question: Получил подозрительное письмо, что делать?",
+          "Context 7 for question: Получил подозрительное письмо, что делать?",
+          "Context 8 for question: Получил подозрительное письмо, что делать?",
+          "Context 9 for question: Получил подозрительное письмо, что делать?"
+        ],
+        "faithfulness": 0.23,
+        "answer_relevance": 0.037,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409699",
+        "evaluation_time_seconds": 4.2e-05
+      },
+      {
+        "question_id": "test_2305",
+        "question": "Не работает сетевая печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Не работает сетевая печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает сетевая печать, что делать?",
+          "Context 1 for question: Не работает сетевая печать, что делать?",
+          "Context 2 for question: Не работает сетевая печать, что делать?",
+          "Context 3 for question: Не работает сетевая печать, что делать?",
+          "Context 4 for question: Не работает сетевая печать, что делать?",
+          "Context 5 for question: Не работает сетевая печать, что делать?",
+          "Context 6 for question: Не работает сетевая печать, что делать?",
+          "Context 7 for question: Не работает сетевая печать, что делать?",
+          "Context 8 for question: Не работает сетевая печать, что делать?",
+          "Context 9 for question: Не работает сетевая печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409772",
+        "evaluation_time_seconds": 3.8e-05
+      },
+      {
+        "question_id": "test_2596",
+        "question": "Сколько места нужно для Windows?",
+        "answer": "Ответ на вопрос с top_k=10: Сколько места нужно для Windows?",
+        "contexts": [
+          "Context 0 for question: Сколько места нужно для Windows?",
+          "Context 1 for question: Сколько места нужно для Windows?",
+          "Context 2 for question: Сколько места нужно для Windows?",
+          "Context 3 for question: Сколько места нужно для Windows?",
+          "Context 4 for question: Сколько места нужно для Windows?",
+          "Context 5 for question: Сколько места нужно для Windows?",
+          "Context 6 for question: Сколько места нужно для Windows?",
+          "Context 7 for question: Сколько места нужно для Windows?",
+          "Context 8 for question: Сколько места нужно для Windows?",
+          "Context 9 for question: Сколько места нужно для Windows?"
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409841",
+        "evaluation_time_seconds": 3.5e-05
+      },
+      {
+        "question_id": "test_2633",
+        "question": "Как проверить компьютер на вирусы?",
+        "answer": "Ответ на вопрос с top_k=10: Как проверить компьютер на вирусы?",
+        "contexts": [
+          "Context 0 for question: Как проверить компьютер на вирусы?",
+          "Context 1 for question: Как проверить компьютер на вирусы?",
+          "Context 2 for question: Как проверить компьютер на вирусы?",
+          "Context 3 for question: Как проверить компьютер на вирусы?",
+          "Context 4 for question: Как проверить компьютер на вирусы?",
+          "Context 5 for question: Как проверить компьютер на вирусы?",
+          "Context 6 for question: Как проверить компьютер на вирусы?",
+          "Context 7 for question: Как проверить компьютер на вирусы?",
+          "Context 8 for question: Как проверить компьютер на вирусы?",
+          "Context 9 for question: Как проверить компьютер на вирусы?"
+        ],
+        "faithfulness": 0.221,
+        "answer_relevance": 0.026,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409907",
+        "evaluation_time_seconds": 5.1e-05
+      },
+      {
+        "question_id": "test_2634",
+        "question": "Ошибка 'Missing DLL' при запуске.",
+        "answer": "Ответ на вопрос с top_k=10: Ошибка 'Missing DLL' при запуске.",
+        "contexts": [
+          "Context 0 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 1 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 2 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 3 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 4 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 5 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 6 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 7 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 8 for question: Ошибка 'Missing DLL' при запуске.",
+          "Context 9 for question: Ошибка 'Missing DLL' при запуске."
+        ],
+        "faithfulness": 0.218,
+        "answer_relevance": 0.022,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.409989",
+        "evaluation_time_seconds": 4.1e-05
+      },
+      {
+        "question_id": "test_2307",
+        "question": "Не работает двусторонняя печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Не работает двусторонняя печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает двусторонняя печать, что делать?",
+          "Context 1 for question: Не работает двусторонняя печать, что делать?",
+          "Context 2 for question: Не работает двусторонняя печать, что делать?",
+          "Context 3 for question: Не работает двусторонняя печать, что делать?",
+          "Context 4 for question: Не работает двусторонняя печать, что делать?",
+          "Context 5 for question: Не работает двусторонняя печать, что делать?",
+          "Context 6 for question: Не работает двусторонняя печать, что делать?",
+          "Context 7 for question: Не работает двусторонняя печать, что делать?",
+          "Context 8 for question: Не работает двусторонняя печать, что делать?",
+          "Context 9 for question: Не работает двусторонняя печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410061",
+        "evaluation_time_seconds": 4e-05
+      },
+      {
+        "question_id": "test_2635",
+        "question": "Программа работает очень медленно.",
+        "answer": "Ответ на вопрос с top_k=10: Программа работает очень медленно.",
+        "contexts": [
+          "Context 0 for question: Программа работает очень медленно.",
+          "Context 1 for question: Программа работает очень медленно.",
+          "Context 2 for question: Программа работает очень медленно.",
+          "Context 3 for question: Программа работает очень медленно.",
+          "Context 4 for question: Программа работает очень медленно.",
+          "Context 5 for question: Программа работает очень медленно.",
+          "Context 6 for question: Программа работает очень медленно.",
+          "Context 7 for question: Программа работает очень медленно.",
+          "Context 8 for question: Программа работает очень медленно.",
+          "Context 9 for question: Программа работает очень медленно."
+        ],
+        "faithfulness": 0.229,
+        "answer_relevance": 0.036,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410135",
+        "evaluation_time_seconds": 4.7e-05
+      },
+      {
+        "question_id": "test_2636",
+        "question": "Программа не сохраняет файлы.",
+        "answer": "Ответ на вопрос с top_k=10: Программа не сохраняет файлы.",
+        "contexts": [
+          "Context 0 for question: Программа не сохраняет файлы.",
+          "Context 1 for question: Программа не сохраняет файлы.",
+          "Context 2 for question: Программа не сохраняет файлы.",
+          "Context 3 for question: Программа не сохраняет файлы.",
+          "Context 4 for question: Программа не сохраняет файлы.",
+          "Context 5 for question: Программа не сохраняет файлы.",
+          "Context 6 for question: Программа не сохраняет файлы.",
+          "Context 7 for question: Программа не сохраняет файлы.",
+          "Context 8 for question: Программа не сохраняет файлы.",
+          "Context 9 for question: Программа не сохраняет файлы."
+        ],
+        "faithfulness": 0.222,
+        "answer_relevance": 0.028,
+        "context_precision": 0.5,
+        "context_recall": 0.55,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410214",
+        "evaluation_time_seconds": 3.8e-05
+      },
+      {
+        "question_id": "test_2637",
+        "question": "Компьютер медленно загружается.",
+        "answer": "Ответ на вопрос с top_k=10: Компьютер медленно загружается.",
+        "contexts": [
+          "Context 0 for question: Компьютер медленно загружается.",
+          "Context 1 for question: Компьютер медленно загружается.",
+          "Context 2 for question: Компьютер медленно загружается.",
+          "Context 3 for question: Компьютер медленно загружается.",
+          "Context 4 for question: Компьютер медленно загружается.",
+          "Context 5 for question: Компьютер медленно загружается.",
+          "Context 6 for question: Компьютер медленно загружается.",
+          "Context 7 for question: Компьютер медленно загружается.",
+          "Context 8 for question: Компьютер медленно загружается.",
+          "Context 9 for question: Компьютер медленно загружается."
+        ],
+        "faithfulness": 0.225,
+        "answer_relevance": 0.031,
+        "context_precision": 0.429,
+        "context_recall": 0.486,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410285",
+        "evaluation_time_seconds": 4e-05
+      },
+      {
+        "question_id": "test_2638",
+        "question": "Не работает звук на компьютере.",
+        "answer": "Ответ на вопрос с top_k=10: Не работает звук на компьютере.",
+        "contexts": [
+          "Context 0 for question: Не работает звук на компьютере.",
+          "Context 1 for question: Не работает звук на компьютере.",
+          "Context 2 for question: Не работает звук на компьютере.",
+          "Context 3 for question: Не работает звук на компьютере.",
+          "Context 4 for question: Не работает звук на компьютере.",
+          "Context 5 for question: Не работает звук на компьютере.",
+          "Context 6 for question: Не работает звук на компьютере.",
+          "Context 7 for question: Не работает звук на компьютере.",
+          "Context 8 for question: Не работает звук на компьютере.",
+          "Context 9 for question: Не работает звук на компьютере."
+        ],
+        "faithfulness": 0.215,
+        "answer_relevance": 0.019,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410356",
+        "evaluation_time_seconds": 4.2e-05
+      },
+      {
+        "question_id": "test_2309",
+        "question": "Не работает цветная печать, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Не работает цветная печать, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает цветная печать, что делать?",
+          "Context 1 for question: Не работает цветная печать, что делать?",
+          "Context 2 for question: Не работает цветная печать, что делать?",
+          "Context 3 for question: Не работает цветная печать, что делать?",
+          "Context 4 for question: Не работает цветная печать, что делать?",
+          "Context 5 for question: Не работает цветная печать, что делать?",
+          "Context 6 for question: Не работает цветная печать, что делать?",
+          "Context 7 for question: Не работает цветная печать, что делать?",
+          "Context 8 for question: Не работает цветная печать, что делать?",
+          "Context 9 for question: Не работает цветная печать, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410428",
+        "evaluation_time_seconds": 3.5e-05
+      },
+      {
+        "question_id": "test_2639",
+        "question": "Потерялись файлы с рабочего стола.",
+        "answer": "Ответ на вопрос с top_k=10: Потерялись файлы с рабочего стола.",
+        "contexts": [
+          "Context 0 for question: Потерялись файлы с рабочего стола.",
+          "Context 1 for question: Потерялись файлы с рабочего стола.",
+          "Context 2 for question: Потерялись файлы с рабочего стола.",
+          "Context 3 for question: Потерялись файлы с рабочего стола.",
+          "Context 4 for question: Потерялись файлы с рабочего стола.",
+          "Context 5 for question: Потерялись файлы с рабочего стола.",
+          "Context 6 for question: Потерялись файлы с рабочего стола.",
+          "Context 7 for question: Потерялись файлы с рабочего стола.",
+          "Context 8 for question: Потерялись файлы с рабочего стола.",
+          "Context 9 for question: Потерялись файлы с рабочего стола."
+        ],
+        "faithfulness": 0.2,
+        "answer_relevance": 0.0,
+        "context_precision": 0.556,
+        "context_recall": 0.6,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410499",
+        "evaluation_time_seconds": 4e-05
+      },
+      {
+        "question_id": "test_2310",
+        "question": "Как решить проблему с настройка vpn?",
+        "answer": "Ответ на вопрос с top_k=10: Как решить проблему с настройка vpn?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с настройка vpn?",
+          "Context 1 for question: Как решить проблему с настройка vpn?",
+          "Context 2 for question: Как решить проблему с настройка vpn?",
+          "Context 3 for question: Как решить проблему с настройка vpn?",
+          "Context 4 for question: Как решить проблему с настройка vpn?",
+          "Context 5 for question: Как решить проблему с настройка vpn?",
+          "Context 6 for question: Как решить проблему с настройка vpn?",
+          "Context 7 for question: Как решить проблему с настройка vpn?",
+          "Context 8 for question: Как решить проблему с настройка vpn?",
+          "Context 9 for question: Как решить проблему с настройка vpn?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410572",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2313",
+        "question": "Не работает подключение к wi-fi, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Не работает подключение к wi-fi, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 1 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 2 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 3 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 4 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 5 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 6 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 7 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 8 for question: Не работает подключение к wi-fi, что делать?",
+          "Context 9 for question: Не работает подключение к wi-fi, что делать?"
+        ],
+        "faithfulness": 0.296,
+        "answer_relevance": 0.12,
+        "context_precision": 0.636,
+        "context_recall": 0.673,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410634",
+        "evaluation_time_seconds": 3.7e-05
+      },
+      {
+        "question_id": "test_2315",
+        "question": "Не работает общий доступ к файлам, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Не работает общий доступ к файлам, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 1 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 2 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 3 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 4 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 5 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 6 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 7 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 8 for question: Не работает общий доступ к файлам, что делать?",
+          "Context 9 for question: Не работает общий доступ к файлам, что делать?"
+        ],
+        "faithfulness": 0.323,
+        "answer_relevance": 0.154,
+        "context_precision": 0.667,
+        "context_recall": 0.7,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410706",
+        "evaluation_time_seconds": 4e-05
+      },
+      {
+        "question_id": "test_2319",
+        "question": "Не работает dns настройки, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Не работает dns настройки, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает dns настройки, что делать?",
+          "Context 1 for question: Не работает dns настройки, что делать?",
+          "Context 2 for question: Не работает dns настройки, что делать?",
+          "Context 3 for question: Не работает dns настройки, что делать?",
+          "Context 4 for question: Не работает dns настройки, что делать?",
+          "Context 5 for question: Не работает dns настройки, что делать?",
+          "Context 6 for question: Не работает dns настройки, что делать?",
+          "Context 7 for question: Не работает dns настройки, что делать?",
+          "Context 8 for question: Не работает dns настройки, что делать?",
+          "Context 9 for question: Не работает dns настройки, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410775",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2320",
+        "question": "Как решить проблему с статический ip?",
+        "answer": "Ответ на вопрос с top_k=10: Как решить проблему с статический ip?",
+        "contexts": [
+          "Context 0 for question: Как решить проблему с статический ip?",
+          "Context 1 for question: Как решить проблему с статический ip?",
+          "Context 2 for question: Как решить проблему с статический ip?",
+          "Context 3 for question: Как решить проблему с статический ip?",
+          "Context 4 for question: Как решить проблему с статический ip?",
+          "Context 5 for question: Как решить проблему с статический ip?",
+          "Context 6 for question: Как решить проблему с статический ip?",
+          "Context 7 for question: Как решить проблему с статический ip?",
+          "Context 8 for question: Как решить проблему с статический ip?",
+          "Context 9 for question: Как решить проблему с статический ip?"
+        ],
+        "faithfulness": 0.233,
+        "answer_relevance": 0.042,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410844",
+        "evaluation_time_seconds": 3.6e-05
+      },
+      {
+        "question_id": "test_2323",
+        "question": "Не работает настройка outlook, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Не работает настройка outlook, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает настройка outlook, что делать?",
+          "Context 1 for question: Не работает настройка outlook, что делать?",
+          "Context 2 for question: Не работает настройка outlook, что делать?",
+          "Context 3 for question: Не работает настройка outlook, что делать?",
+          "Context 4 for question: Не работает настройка outlook, что делать?",
+          "Context 5 for question: Не работает настройка outlook, что делать?",
+          "Context 6 for question: Не работает настройка outlook, что делать?",
+          "Context 7 for question: Не работает настройка outlook, что делать?",
+          "Context 8 for question: Не работает настройка outlook, что делать?",
+          "Context 9 for question: Не работает настройка outlook, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410911",
+        "evaluation_time_seconds": 4.2e-05
+      },
+      {
+        "question_id": "test_2325",
+        "question": "Не работает правила сортировки, что делать?",
+        "answer": "Ответ на вопрос с top_k=10: Не работает правила сортировки, что делать?",
+        "contexts": [
+          "Context 0 for question: Не работает правила сортировки, что делать?",
+          "Context 1 for question: Не работает правила сортировки, что делать?",
+          "Context 2 for question: Не работает правила сортировки, что делать?",
+          "Context 3 for question: Не работает правила сортировки, что делать?",
+          "Context 4 for question: Не работает правила сортировки, что делать?",
+          "Context 5 for question: Не работает правила сортировки, что делать?",
+          "Context 6 for question: Не работает правила сортировки, что делать?",
+          "Context 7 for question: Не работает правила сортировки, что делать?",
+          "Context 8 for question: Не работает правила сортировки, что делать?",
+          "Context 9 for question: Не работает правила сортировки, что делать?"
+        ],
+        "faithfulness": 0.267,
+        "answer_relevance": 0.083,
+        "context_precision": 0.6,
+        "context_recall": 0.64,
+        "top_k": 10,
+        "timestamp": "2026-05-12T18:14:49.410986",
+        "evaluation_time_seconds": 3.6e-05
+      }
+    ]
+  }
+}

@@ -235,3 +235,106 @@ class RAGApi:
         except Exception as e:
             logger.error(f"Error fetching categories: {e}")
             return []
+    
+    def get_chat_history(
+        self,
+        user_id: Optional[str] = None,
+        page: int = 1,
+        page_size: int = 50
+    ) -> Dict:
+        """Get chat history with server-side pagination"""
+        try:
+            # Сначала получаем общее количество записей
+            count_query = self.supabase.table('chat_history').select('id', count='exact')
+            
+            if user_id:
+                count_query = count_query.eq('user_id', user_id)
+            
+            count_result = count_query.execute()
+            total = count_result.count if hasattr(count_result, 'count') else 0
+            
+            # Затем получаем только нужную страницу
+            query = self.supabase.table('chat_history').select(
+                'id', 'user_id', 'message_type', 'content', 'metadata', 'created_at'
+            ).order('created_at', desc=True)
+            
+            if user_id:
+                query = query.eq('user_id', user_id)
+            
+            # Server-side pagination
+            start = (page - 1) * page_size
+            end = start + page_size - 1
+            query = query.range(start, end)
+            
+            result = query.execute()
+            messages = result.data if result.data else []
+            
+            return {
+                'messages': messages,
+                'total': total,
+                'page': page,
+                'page_size': page_size,
+                'total_pages': (total + page_size - 1) // page_size if page_size > 0 else 0
+            }
+        
+        except Exception as e:
+            logger.error(f"Error fetching chat history: {e}")
+            return {
+                'messages': [],
+                'total': 0,
+                'page': page,
+                'page_size': page_size,
+                'total_pages': 0
+            }
+    
+    def get_unique_users(self) -> List[str]:
+        """Get list of unique user IDs using DISTINCT query"""
+        try:
+            # Используем DISTINCT для получения уникальных значений
+            result = self.supabase.table('chat_history').select('user_id').execute()
+            
+            if not result.data:
+                return []
+            
+            # Извлекаем уникальные user_id
+            user_ids = set(record.get('user_id') for record in result.data if record.get('user_id'))
+            
+            return sorted(list(user_ids))
+        
+        except Exception as e:
+            logger.error(f"Error fetching unique users: {e}")
+            return []
+    
+    def get_user_stats(self) -> Dict:
+        """Get statistics about users using aggregated query"""
+        try:
+            # Загружаем только необходимые поля
+            result = self.supabase.table('chat_history').select('user_id', 'message_type').execute()
+            
+            if not result.data:
+                return {}
+            
+            # Агрегируем данные в памяти
+            user_stats = {}
+            for record in result.data:
+                user_id = record.get('user_id')
+                message_type = record.get('message_type')
+                
+                if not user_id:
+                    continue
+                
+                if user_id not in user_stats:
+                    user_stats[user_id] = {'user_messages': 0, 'bot_messages': 0, 'total': 0}
+                
+                if message_type == 'user':
+                    user_stats[user_id]['user_messages'] += 1
+                elif message_type == 'bot':
+                    user_stats[user_id]['bot_messages'] += 1
+                
+                user_stats[user_id]['total'] += 1
+            
+            return user_stats
+        
+        except Exception as e:
+            logger.error(f"Error fetching user stats: {e}")
+            return {}

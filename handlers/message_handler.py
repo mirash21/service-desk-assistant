@@ -16,6 +16,7 @@ from utils.prompt_builder import (
 )
 from utils.file_handler import download_file
 from utils.rate_limiter import RateLimiter
+from utils.rag_cache import RAGCacheManager
 from utils.logger import logger
 from config import MAX_BOT_TOKEN, MAX_API_URL, DATA_DIR, TEMP_DIR, MAX_FILE_SIZE
 
@@ -29,8 +30,51 @@ class MessageHandler:
         self.unanswered_logger = UnansweredQuestionsLogger()
         self.voice_prefs = VoicePreferencesManager()
         self.tts_cache = TTSCacheManager()
+        self.rag_cache = RAGCacheManager(ttl_hours=24)  # Кэш на 24 часа
         self.rate_limiter = RateLimiter(max_requests=10, window_seconds=60)
         logger.info("MessageHandler инициализирован")
+
+    def save_chat_history(self, user_id: str, message_type: str, content: str, metadata: dict = None):
+        """
+        Сохраняет сообщение в историю чата
+        
+        Args:
+            user_id: ID пользователя
+            message_type: Тип сообщения ('user' или 'bot')
+            content: Содержимое сообщения
+            metadata: Дополнительные метаданные
+        """
+        try:
+            # Пробуем через RPC функцию
+            try:
+                result = self.rag_manager.client.rpc(
+                    'insert_chat_history',
+                    {
+                        'p_user_id': user_id,
+                        'p_message_type': message_type,
+                        'p_content': content,
+                        'p_metadata': metadata or {}
+                    }
+                ).execute()
+                logger.debug(f"История чата сохранена (RPC) для {user_id}: {message_type}")
+            except Exception as rpc_error:
+                # Если RPC не работает, используем прямой insert
+                logger.debug(f"RPC недоступен, используем прямой insert для {user_id}")
+                data = {
+                    "user_id": user_id,
+                    "message_type": message_type,
+                    "content": content,
+                    "metadata": metadata or {}
+                }
+                result = self.rag_manager.client.table("chat_history").insert(data).execute()
+                
+                if result.data:
+                    logger.debug(f"История чата сохранена (direct) для {user_id}: {message_type}")
+                else:
+                    logger.warning(f"Не удалось сохранить историю чата (direct) для {user_id}")
+                
+        except Exception as e:
+            logger.error(f"Ошибка сохранения истории чата: {e}")
 
     async def handle_update(self, update: dict) -> dict:
         """
@@ -62,6 +106,11 @@ class MessageHandler:
         # Обработка команд
         text = message.get("text") or message.get("body", {}).get("text", "")
         logger.info(f"Извлеченный текст: '{text}' (длина: {len(text)})")
+        
+        # Сохраняем сообщение пользователя в историю
+        if text:
+            self.save_chat_history(user_id, 'user', text, {'command': True if text.startswith('/') else False})
+        
         if text.startswith("/"):
             logger.info(f"Обнаружена команда: {text}")
             return await self._handle_command(message, chat_id, user_id)
@@ -337,6 +386,34 @@ class MessageHandler:
         Returns:
             Ответ пользователю
         """
+        # Проверяем кэш RAG ответов
+        cached = self.rag_cache.get(context, top_k=3)
+        if cached:
+            logger.info(f"✅ Кэш попадание для вопроса: {context[:50]}...")
+            user_answer = cached['answer']
+            rag_results = [{'content': ctx} for ctx in cached['contexts']]
+            
+            # Проверяем, включена ли озвучка для пользователя
+            voice_enabled = self.voice_prefs.get_user_voice_preference(user_id)
+            voice_path = None
+            if voice_enabled:
+                voice_path = self._generate_voice_response(user_answer, user_id)
+            
+            # Сохраняем ответ бота в историю
+            self.save_chat_history(user_id, 'bot', user_answer, {'has_voice': voice_enabled, 'voice_path': voice_path, 'from_cache': True})
+            
+            return {
+                "chat_id": chat_id,
+                "text": user_answer,
+                "voice_path": voice_path
+            }
+        
+        logger.info(f"❌ Кэш промах, обрабатываем вопрос: {context[:50]}...")
+        
+        # Получаем историю чата для контекста
+        conversation_history = self.rag_manager.get_chat_history(user_id, limit=5)
+        logger.info(f"Получено {len(conversation_history)} сообщений истории для {user_id}")
+        
         # Поиск релевантных документов через RAG
         logger.info(f"Поиск по базе знаний для вопроса: {context[:100]}")
         rag_results = self.rag_manager.search(context, top_k=3)
@@ -353,8 +430,8 @@ class MessageHandler:
             logger.info("Документы в базе знаний не найдены")
             knowledge_context = "Информация в базе знаний отсутствует."
         
-        # Используем RAG промпт
-        prompt = build_rag_prompt(context, knowledge_context)
+        # Используем RAG промпт с историей диалога
+        prompt = build_rag_prompt(context, knowledge_context, conversation_history)
         
         try:
             answer = self.yandex_ai.generate_text(prompt)
@@ -388,6 +465,14 @@ class MessageHandler:
                 voice_path = self._generate_voice_response(user_answer, user_id)
                 logger.info(f"TTS результат: {voice_path}")
             
+            # Сохраняем в кэш RAG
+            contexts = [doc.get('content', '') for doc in rag_results] if rag_results else []
+            self.rag_cache.set(context, user_answer, contexts, top_k=3)
+            logger.info(f"💾 Ответ сохранен в кэш")
+            
+            # Сохраняем ответ бота в историю
+            self.save_chat_history(user_id, 'bot', user_answer, {'has_voice': voice_enabled, 'voice_path': voice_path, 'from_cache': False})
+            
             return {
                 "chat_id": chat_id,
                 "text": user_answer,
@@ -412,6 +497,10 @@ class MessageHandler:
         Returns:
             Ответ пользователю с анализом изображения
         """
+        # Получаем историю чата для контекста
+        conversation_history = self.rag_manager.get_chat_history(user_id, limit=5)
+        logger.info(f"Получено {len(conversation_history)} сообщений истории для {user_id} (image question)")
+        
         # Извлекаем текст изображения
         image_text = ""
         if "IMAGE_TEXT:" in context:
@@ -450,7 +539,8 @@ class MessageHandler:
         
         prompt = build_rag_prompt(
             f"Вопрос пользователя по изображению:\n{context}\n\nКонтекст изображения учитывай при ответе.",
-            knowledge_context
+            knowledge_context,
+            conversation_history
         )
         
         try:
@@ -476,6 +566,9 @@ class MessageHandler:
             voice_path = None
             if self.voice_prefs.get_user_voice_preference(user_id):
                 voice_path = self._generate_voice_response(user_answer, user_id)
+            
+            # Сохраняем ответ бота в историю
+            self.save_chat_history(user_id, 'bot', user_answer, {'has_voice': voice_path is not None, 'image_question': True})
             
             return {
                 "chat_id": chat_id,
@@ -535,6 +628,9 @@ class MessageHandler:
                     logger.error(f"Ошибка создания голоса для {user_id}: {e}")
                     voice_path = None
 
+            # Сохраняем ответ бота в историю
+            self.save_chat_history(user_id, 'bot', reply_text, {'ticket_created': True, 'has_voice': voice_path is not None, 'mode': mode})
+
             return {
                 "chat_id": chat_id,
                 "text": reply_text,
@@ -562,10 +658,14 @@ class MessageHandler:
         # RAG режим: поиск в базе знаний (по умолчанию для всех текстовых вопросов)
         text = message.get("text") or message.get("body", {}).get("text")
         if mode == "rag" and text:
+            # Получаем историю чата для контекста
+            conversation_history = self.rag_manager.get_chat_history(user_id, limit=5)
+            logger.info(f"Получено {len(conversation_history)} сообщений истории для {user_id} (RAG mode)")
+            
             relevant_docs = self.rag_manager.search_text_only(text, top_k=3)
             if relevant_docs:
                 context = "\n\n---\n\n".join(relevant_docs)
-                prompt = build_rag_prompt(text, context)
+                prompt = build_rag_prompt(text, context, conversation_history)
                 answer = self.yandex_ai.generate_text(prompt)
                 logger.info(f"RAG ответ найден для {user_id}")
                 return {"chat_id": chat_id, "text": answer}
@@ -574,7 +674,7 @@ class MessageHandler:
                 logger.info(f"RAG: информация не найдена для {user_id}")
                 
                 # Генерируем черновик ответа через LLM с пустым контекстом
-                empty_context_prompt = build_rag_prompt(text, "(база знаний пуста или не содержит релевантной информации)")
+                empty_context_prompt = build_rag_prompt(text, "(база знаний пуста или не содержит релевантной информации)", conversation_history)
                 llm_response = self.yandex_ai.generate_text(empty_context_prompt)
                 
                 # Извлекаем черновик ответа если он есть
@@ -658,6 +758,15 @@ class MessageHandler:
                         if vision_result["description"]:
                             context_parts.append(f"IMAGE_DESCRIPTION: {vision_result['description']}")
                             logger.info(f"Описание изображения: {vision_result['description']}")
+                        
+                        # Сохраняем информацию об изображении в историю
+                        image_metadata = {
+                            'has_image': True,
+                            'image_text': vision_result.get('text', ''),
+                            'image_description': vision_result.get('description', '')
+                        }
+                        self.save_chat_history(user_id, 'user', '[Изображение]', image_metadata)
+                        
                     except Exception as e:
                         logger.error(f"Ошибка анализа изображения: {e}", exc_info=True)
                         context_parts.append("IMAGE_ERROR: Не удалось проанализировать изображение")
@@ -670,6 +779,10 @@ class MessageHandler:
                         text_from_voice = self.yandex_ai.speech_to_text(audio_path)
                         context_parts.append(f"VOICE_TEXT: {text_from_voice}")
                         logger.info(f"Аудио распознано: {text_from_voice[:50]}...")
+                        
+                        # Сохраняем голосовое сообщение в историю
+                        self.save_chat_history(user_id, 'user', text_from_voice, {'has_voice': True, 'voice_type': 'audio_attachment'})
+                        
                     except Exception as e:
                         logger.error(f"Ошибка обработки аудио: {e}")
                         # Graceful degradation: если STT не работает, отправляем сообщение
@@ -711,6 +824,9 @@ class MessageHandler:
         text = message.get("text") or message.get("body", {}).get("text")
         if text:
             context_parts.append(f"USER_TEXT: {text}")
+            # Сохраняем текстовое сообщение в историю (если еще не сохранено как команда)
+            if not text.startswith('/'):
+                self.save_chat_history(user_id, 'user', text, {'has_image': has_image})
 
         if not context_parts:
             logger.warning(f"Не удалось обработать сообщение от {user_id}")
@@ -735,10 +851,14 @@ class MessageHandler:
                 # В режиме RAG используем базу знаний
                 text = message.get("text") or message.get("body", {}).get("text")
                 if text:
+                    # Получаем историю чата для контекста
+                    conversation_history = self.rag_manager.get_chat_history(user_id, limit=5)
+                    logger.info(f"Получено {len(conversation_history)} сообщений истории для {user_id} (классификация)")
+                    
                     relevant_docs = self.rag_manager.search_text_only(text, top_k=3)
                     if relevant_docs:
                         context = "\n\n---\n\n".join(relevant_docs)
-                        prompt = build_rag_prompt(text, context)
+                        prompt = build_rag_prompt(text, context, conversation_history)
                         answer = self.yandex_ai.generate_text(prompt)
                         logger.info(f"RAG ответ найден для {user_id} (через классификацию)")
                         return {"chat_id": chat_id, "text": answer}
@@ -747,7 +867,7 @@ class MessageHandler:
                         logger.info(f"RAG: информация не найдена для {user_id} (через классификацию)")
                         
                         # Генерируем черновик ответа через LLM с пустым контекстом
-                        empty_context_prompt = build_rag_prompt(text, "(база знаний пуста или не содержит релевантной информации)")
+                        empty_context_prompt = build_rag_prompt(text, "(база знаний пуста или не содержит релевантной информации)", conversation_history)
                         llm_response = self.yandex_ai.generate_text(empty_context_prompt)
                         
                         # Извлекаем черновик ответа если он есть

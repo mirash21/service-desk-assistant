@@ -13,6 +13,7 @@ AI-powered service desk assistant bot with RAG (Retrieval-Augmented Generation) 
 - 💬 **Multiple Modes**: text, rag (with context), and voice response modes
 - 🔄 **Webhook Integration**: Real-time message processing via MAX Messenger API
 - 👤 **User Preferences**: Personalized responses based on user interaction history
+- 📊 **Admin Panel**: Comprehensive admin interface with chat history tracking and analytics
 
 ## Architecture
 

@@ -287,3 +287,41 @@ class SupabaseRAGManager:
         except Exception as e:
             logger.error(f"Ошибка сохранения режима пользователя {user_id}: {e}")
             return False
+
+    def get_chat_history(self, user_id: str, limit: int = 5) -> list:
+        """
+        Получить историю чата пользователя для контекста диалога
+        
+        Args:
+            user_id: ID пользователя
+            limit: Количество последних сообщений (по умолчанию 5)
+            
+        Returns:
+            Список сообщений в формате [{'role': 'user'/'assistant', 'content': '...'}]
+        """
+        try:
+            result = self.client.table('chat_history').select(
+                'message_type', 'content'
+            ).eq('user_id', user_id).order(
+                'created_at', desc=True
+            ).limit(limit).execute()
+            
+            if not result.data:
+                logger.debug(f"История чата не найдена для пользователя {user_id}")
+                return []
+            
+            # Преобразуем в формат для промпта (последние сообщения первыми в списке)
+            history = []
+            for msg in reversed(result.data):  # Разворачиваем чтобы oldest first
+                role = 'user' if msg['message_type'] == 'user' else 'assistant'
+                history.append({
+                    'role': role,
+                    'content': msg['content']
+                })
+            
+            logger.debug(f"Получено {len(history)} сообщений истории для {user_id}")
+            return history
+            
+        except Exception as e:
+            logger.error(f"Ошибка получения истории чата для {user_id}: {e}")
+            return []

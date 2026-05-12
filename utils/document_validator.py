@@ -305,21 +305,31 @@ class DocumentQualityValidator:
         while start < len(content):
             end = start + target_size
             
-            # Находим границу предложения
+            # Находим границу для разделения
             if end < len(content):
-                # Ищем конец предложения
-                sentence_end = content.rfind('.', start, end)
-                if sentence_end == -1:
-                    sentence_end = content.rfind('\n', start, end)
+                # Сначала ищем конец предложения (точка, вопрос, восклицание)
+                sentence_end = -1
+                for punct in ['.', '?', '!', '\n']:
+                    pos = content.rfind(punct, start, end)
+                    if pos > start + 100:  # Минимальный размер чанка
+                        if sentence_end == -1 or pos > sentence_end:
+                            sentence_end = pos
                 
-                if sentence_end > start + 100:  # Минимальный размер чанка
+                # Если нашли подходящую границу
+                if sentence_end > start + 100:
                     end = sentence_end + 1
+                else:
+                    # Иначе ищем просто пробел или перенос строки
+                    space_end = content.rfind(' ', start + 150, end)
+                    if space_end > start:
+                        end = space_end
             
             chunk = content[start:end].strip()
             if chunk and len(chunk) >= 100:
                 chunks.append(chunk)
             
-            start = end - overlap  # Перекрытие
+            # Перемещаемся с учетом перекрытия
+            start = end - overlap if end > start + overlap else start + target_size
         
         return chunks
     
