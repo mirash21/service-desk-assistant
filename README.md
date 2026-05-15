@@ -419,6 +419,150 @@ python scripts/apply_chat_history_migration.py
 python scripts/apply_rag_quality_migration.py
 ```
 
+## Соответствие требованиям 152-ФЗ
+
+Система реализует комплекс мер для защиты персональных данных в соответствии с Федеральным законом №152-ФЗ:
+
+### 🔐 Шифрование данных
+
+- **Шифрование PII**: Автоматическое шифрование персональных данных (email, телефон, паспорт, СНИЛС, ИНН) на уровне приложения
+- **Управление ключами**: Безопасное хранение и ротация ключей шифрования через `utils/encryption_key_manager.py`
+- **Алгоритм**: Используется Fernet (AES-128-CBC) с поддержкой мастер-пароля
+
+```bash
+# Генерация нового ключа шифрования
+python -c "from utils.encryption_key_manager import EncryptionKeyManager; print(EncryptionKeyManager.generate_secure_key())"
+
+# Ротация ключа (сохраняет старый ключ)
+python -c "from utils.encryption_key_manager import encryption_manager; encryption_manager.rotate_key()"
+```
+
+### 📋 Система аудита
+
+Полное логирование всех операций с персональными данными:
+
+- **Доступ к данным**: Регистрация всех запросов к персональным данным
+- **Модификация**: Отслеживание изменений пользовательской информации
+- **Экспорт**: Логирование выгрузки данных (включая формат и объем)
+- **Удаление**: Фиксация фактов удаления персональных данных
+- **Согласия**: Управление и аудит согласий пользователей
+
+Логи сохраняются в `data/audit_logs/` с ежедневной ротацией.
+
+### 🎭 Маскирование PII
+
+Автоматическое маскирование чувствительных данных в логах:
+
+```python
+from utils.pii_masker import pii_masker
+
+# Маскирование текста
+text = "Контакты: user@example.com, +7 (999) 123-45-67"
+masked = pii_masker.mask_all(text)
+# Результат: "Контакты: u***@example.com, +7 (***) ***-**-**"
+
+# Маскирование словаря
+data = {'email': 'user@test.com', 'phone': '+79991234567'}
+masked_data = pii_masker.mask_dict(data)
+# Результат: {'email': '***MASKED***', 'phone': '***MASKED***'}
+```
+
+Поддерживаемые типы данных:
+- Email адреса
+- Номера телефонов (российские форматы)
+- Паспортные данные
+- СНИЛС
+- ИНН
+- Номера кредитных карт
+
+### 🔒 Row Level Security (RLS)
+
+Защита на уровне базы данных PostgreSQL:
+
+- **Изоляция пользователей**: Каждый пользователь видит только свои данные
+- **Политики доступа**: Детальные правила для SELECT, INSERT, UPDATE, DELETE
+- **Административный доступ**: Отдельные политики для администраторов
+
+Применение политик RLS:
+```bash
+psql -h YOUR_HOST -U postgres -d postgres -f scripts/enable_rls_152fz.sql
+```
+
+### 👤 Управление согласиями
+
+Система управления согласиями пользователей на обработку данных:
+
+- **Типы согласий**: Обработка персональных данных, маркетинговые рассылки, аналитика
+- **История изменений**: Полная история предоставления/отзыва согласий
+- **Гранулярность**: Возможность управлять каждым типом согласия отдельно
+
+Настройка таблиц согласий:
+```bash
+psql -h YOUR_HOST -U postgres -d postgres -f scripts/setup_consent_management.sql
+```
+
+### 💾 Защищенные бэкапы
+
+Шифрованные резервные копии базы данных:
+
+```bash
+# Создание зашифрованного бэкапа
+./scripts/backup_encrypted.sh
+
+# Бэкап сохраняется в data/backups/ с шифрованием AES-256
+```
+
+### 📊 Экспорт персональных данных
+
+Пользователи могут запросить экспорт своих данных:
+
+- **Форматы**: JSON, CSV
+- **Полнота**: Все данные пользователя включая историю чатов
+- **Аудит**: Каждая выгрузка логируется
+
+### 🔧 Настройка безопасности
+
+1. **Установите мастер-пароль для шифрования**:
+```env
+ENCRYPTION_MASTER_PASSWORD=your_strong_password_here
+```
+
+2. **Инициализируйте систему шифрования**:
+```bash
+python -c "from utils.encryption_key_manager import EncryptionKeyManager; manager = EncryptionKeyManager(master_password='your_password'); print('Ключ создан')"
+```
+
+3. **Примените миграции базы данных**:
+```bash
+# Настройка шифрования
+psql -h YOUR_HOST -U postgres -d postgres -f scripts/setup_encryption.sql
+
+# Настройка RLS
+psql -h YOUR_HOST -U postgres -d postgres -f scripts/enable_rls_152fz.sql
+
+# Настройка управления согласиями
+psql -h YOUR_HOST -U postgres -d postgres -f scripts/setup_consent_management.sql
+```
+
+4. **Проверьте работу системы аудита**:
+```bash
+python -c "
+from utils.audit_logger import audit_logger
+audit_logger.log_authentication('user123', 'password', True, ip_address='192.168.1.1')
+print('Аудит работает! Проверьте data/audit_logs/')
+"
+```
+
+### 📚 Документация по безопасности
+
+Подробная документация доступна в следующих файлах:
+- `SECURITY_AUDIT_152FZ.md` - Полный аудит безопасности
+- `SECURITY_ARCHITECTURE.md` - Архитектура системы безопасности
+- `AUDIT_SUMMARY.md` - Краткая сводка аудита
+- `EXECUTION_REPORT.md` - Отчет о выполнении требований
+- `PHASE2_REPORT.md` - Этап 2: Шифрование и аудит
+- `PHASE3_COMPLETE.md` - Этап 3: RLS и управление согласиями
+
 ## Примечания по безопасности
 
 - ⚠️ Никогда не коммитьте файл `.env` в систему контроля версий
